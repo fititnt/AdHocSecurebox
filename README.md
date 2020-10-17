@@ -29,7 +29,7 @@ mkdir data/
 
 # Copy VSCode to ram to improve performance
 cp -r /home/amnesia/Persistent/VSCode-linux-x64/ /home/amnesia/Desktop
-/home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox --disable-gpu /home/amnesia/Persistent/TailsOS-for-non-whistleblowers
+/home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox /home/amnesia/Persistent/TailsOS-for-non-whistleblowers
 
 # TODO: fix issue `Error: net::ERR_CONNECTION_REFUSED` on VSCode when trying to check for extensions (fititnt, 2020-10-16 18:17 BRT)
 ```
@@ -47,6 +47,7 @@ cp -r /home/amnesia/Persistent/VSCode-linux-x64/ /home/amnesia/Desktop
 1. <s>Restart from my main OS on Tails and Commit from there</s>
 2. Do commits via git, and not via GitHub web interface
 3. Fix issue `Error: net::ERR_CONNECTION_REFUSED` on VSCode when trying to check for extensions
+4. When 2 is solved, divide on this project in different scripts
 
 ## License
 
