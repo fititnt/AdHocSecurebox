@@ -10,29 +10,18 @@ cd /home/amnesia/Persistent/TailsOS-for-non-whistleblowers
 
 ## Guides
 - [docs/git-setup.sh](docs/git-setup.sh)
+- [docs/password-manangement.md](docs/password-manangement.md)
 - [docs/backup-tails-drill-draft.sh](docs/backup-tails-drill-draft.sh)
 - [docs/vscode-portable-setup.sh](docs/vscode-portable-setup.sh)
   - Alternative: [docs/vscode-deb-setup.sh](docs/vscode-portable-setup.sh)
-
-<!--
-
-## See also
-
-### Guides, informations, etc
-- <https://github.com/patrick-blom/dive-into-tails>
-- <https://tails.boum.org/doc/first_steps/persistence/configure/index.en.html>
-
-### Alternative OSs
-- https://www.qubes-os.org/
-
-
--->
 
 ## TODOs
 1. <s>Restart from my main OS on Tails and Commit from there</s>
 2. <s>Do commits via git, and not via GitHub web interface</s>
 3. Fix issue `Error: net::ERR_CONNECTION_REFUSED` on VSCode when trying to check for extensions
 4. <s>When 2 is solved, divide on this project in different scripts</s>
+5. Send e-mail with Tunderbird
+6. Send e-mail with Tunderbird, but now encrypted
 
 ## License
 
