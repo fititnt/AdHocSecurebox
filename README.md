@@ -10,7 +10,11 @@ cd /home/amnesia/Persistent/TailsOS-for-non-whistleblowers
 
 ## Guides
 - [docs/git-setup.sh](docs/git-setup.sh)
-- [docs/vscode-setup.sh](docs/vscode-setup.sh)
+- [docs/backup-tails-drill-draft.sh](docs/backup-tails-drill-draft.sh)
+- [docs/vscode-portable-setup.sh](docs/vscode-portable-setup.sh)
+  - Alternative: [docs/vscode-deb-setup.sh](docs/vscode-portable-setup.sh)
+
+<!--
 
 ## See also
 
@@ -21,7 +25,10 @@ cd /home/amnesia/Persistent/TailsOS-for-non-whistleblowers
 ### Alternative OSs
 - https://www.qubes-os.org/
 
-## TODO
+
+-->
+
+## TODOs
 1. <s>Restart from my main OS on Tails and Commit from there</s>
 2. <s>Do commits via git, and not via GitHub web interface</s>
 3. Fix issue `Error: net::ERR_CONNECTION_REFUSED` on VSCode when trying to check for extensions

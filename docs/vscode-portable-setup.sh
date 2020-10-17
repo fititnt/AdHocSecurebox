@@ -1,13 +1,11 @@
 #!/bin/sh
 #===============================================================================
 #
-#          FILE:  vscode-setup.sh
+#          FILE:  vscode-portable-setup.sh
 #
-#         USAGE:  cat vscode-setup.sh
+#         USAGE:  cat vscode-portable-setup.sh
 #
-#   DESCRIPTION:  TailsOS (tested v4.12) already comes with git cli command. This
-#                 doc explain one way to configure a new account. And suggest
-#                 extra optionated packages (git-gui, gitk)
+#   DESCRIPTION:  VSCode (portable) setup for TailsOS.
 #
 #       OPTIONS:  ---
 #  REQUIREMENTS:  ---
@@ -18,20 +16,20 @@
 #       LICENSE:  Public Domain
 #       VERSION:  1.1
 #       CREATED:  2020-10-17 10:57 UTC
-#      REVISION:  2020-10-17 10:57 UTC v1.1 re-started. The vscode-setup.sh v1.0
+#      REVISION:  2020-10-17 10:57 UTC v1.1 re-started. The vscode-portable-setup.sh v1.0
 #                                      was deleted by mistake (around ~30min of
 #                                      work lost). TailsOS don't have a trash
 #                                      feature and even VSCode warned
 #===============================================================================
 echo "Usage:"
-echo "    cat vscode-setup.sh"
+echo "    cat vscode-portable-setup.sh"
 echo "exiting..."
 exit 0
 
 # TODO: re-do the work lost from 1.0 later (fititnt, 2020-10-17 11:02 UTC)
 
 # @see https://code.visualstudio.com/docs/editor/portable
-wget https://go.microsoft.com/fwlink/?LinkID=620884 -O /tmp/vscode.tar.gz
+wget https://go.microsoft.com/fwlink/?LinkID=760868 -O /tmp/vscode.deb
 cd /home/amnesia/Persistent
 tar -vzxf /tmp/vscode.tar.gz
 cd /home/amnesia/Persistent/VSCode-linux-x64
@@ -51,3 +49,5 @@ cp -r /home/amnesia/Persistent/VSCode-linux-x64/ /home/amnesia/Desktop
 /home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox /home/amnesia/Persistent/TailsOS-for-non-whistleblowers
 
 # TODO: fix issue `Error: net::ERR_CONNECTION_REFUSED` on VSCode when trying to check for extensions (fititnt, 2020-10-16 18:17 BRT)
+
+# TODO: install at least the https://marketplace.visualstudio.com/items?itemName=AlanWalk.markdown-toc (fititnt, 2020-10-16 12:33 UTC)
