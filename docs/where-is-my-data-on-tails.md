@@ -9,7 +9,8 @@ Tails._
 > Note: this TL;DR was written by someone who just started to test Tails and
   wanted to keep some notes to self. This part may contain errors, and even
   if people could send pull requests, on this type of topic, people are less
-  likely to do it.
+  likely to do it. When in doubt, check the
+  [Official documentation](#official-documentation).
 
 - Tails is the *The Amnesic Incognito Live System*. This means that by default
   it will **NOT _save_** (aka "Persist") on reboot if you do not enable
@@ -39,6 +40,8 @@ Tails._
       (includes bdata from `/home/amnesia/Persistent` and all other data
       that averange user don't usually touch, but if you're reading this,
       you're likely to like that directory)
+- `/live/persistence/TailsData_unlocked/persistence.conf`: this file is used
+   by Tails to know how persistence is configured.
 
 
 ## Official documentation

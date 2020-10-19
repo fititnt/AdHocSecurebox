@@ -25,11 +25,19 @@ echo "    cat git-setup.sh"
 echo "exiting..."
 exit 0
 
-#### Configure global user and password _______________________________________
+#### 1. Configure global user and password _____________________________________
 # @see https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 
+#### 2. Persist changes ________________________________________________________
+# Note: this assumes you already have enabled Persistence and the features
+#       'dotfiles' is enabled.
+cp /home/amnesia/.gitconfig /live/persistence/TailsData_unlocked/dotfiles/
+
+# On next boot, when you unlock your TailsData partition it any new
+# customization will already be on the file
+#     /live/persistence/TailsData_unlocked/dotfiles/.gitconfig
 
 #### [OPTIONAL] Additional software ____________________________________________
 # TailsOS (tested v4.12) comes with git cli by default, but not some extra
