@@ -15,6 +15,8 @@ cd /home/amnesia/Persistent/TailsOS-for-non-whistleblowers
   official documentation.
 
 - [docs/git-setup.sh](docs/git-setup.sh)
+- [docs/oh-my-zsh-setup.sh](docs/oh-my-zsh-setup.sh)
+    - [docs/zsh-setup.sh](docs/zsh-setup.sh)
 - [docs/where-is-my-data-on-tails.md](docs/where-is-my-data-on-tails.md)
 - [docs/password-manangement.md](docs/password-manangement.md)
 - [docs/backup-tails-drill-draft.sh](docs/backup-tails-drill-draft.sh)
@@ -31,7 +33,7 @@ In addition to [fititnt/TailsOS-for-non-whistleblowers/issues](https://github.co
 6. Send e-mail with Tunderbird, but now encrypted
 7. Persistence: keep changes on Wallpaper (yes, TailsOS by default clean everyting)
 8. Persistence: remember (or re-insert on demand) `config --global user.name/user.email`
-9. Discover how to customize Keyboard layout to Brazilian ABNT (the one with `ç`
+9. Discover how to customize Keyboard layout to Brazilian ABNT (the one with `ç`)
 
 ## License
 

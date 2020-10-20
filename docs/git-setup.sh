@@ -42,6 +42,7 @@ cp /home/amnesia/.gitconfig /live/persistence/TailsData_unlocked/dotfiles/
 #### [OPTIONAL] Additional software ____________________________________________
 # TailsOS (tested v4.12) comes with git cli by default, but not some extra
 # packages that Rocha likes. It's up to you if you want them.
+sudo apt update
 sudo apt install gitk git-gui
 
 # Note: after you install these extra packages, the OS will prompt you to decide
