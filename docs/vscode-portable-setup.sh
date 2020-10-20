@@ -29,7 +29,7 @@ exit 0
 # TODO: re-do the work lost from 1.0 later (fititnt, 2020-10-17 11:02 UTC)
 
 # @see https://code.visualstudio.com/docs/editor/portable
-wget https://go.microsoft.com/fwlink/?LinkID=760868 -O /tmp/vscode.deb
+wget https://go.microsoft.com/fwlink/?LinkID=620884 -O /tmp/vscode.tar.gz
 cd /home/amnesia/Persistent
 tar -vzxf /tmp/vscode.tar.gz
 cd /home/amnesia/Persistent/VSCode-linux-x64
