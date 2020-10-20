@@ -62,6 +62,13 @@ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O 
 #       'dotfiles' is enabled.
 cp /home/amnesia/.zshrc /live/persistence/TailsData_unlocked/dotfiles/
 cp -r /home/amnesia/.oh-my-zsh /live/persistence/TailsData_unlocked/dotfiles/
+
+# The next line is necessary only if you plan to unnistall oh-my-zsh, since the
+# unninstaller of oh-my-zsh would try to revert for the old shell. Since you're
+# already using TailsOS in special if you're doing a live install, this step
+# would be not necessary. But we're documenting anyway.
+cp /home/amnesia/.shell.pre-oh-my-zsh /live/persistence/TailsData_unlocked/dotfiles/
+
 # On next boot, when you unlock your TailsData partition it any new
 # customization will already be symlinked from your 
 #    /live/persistence/TailsData_unlocked/dotfiles/
