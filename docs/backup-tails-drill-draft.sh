@@ -23,16 +23,5 @@
 #      REVISION:  ---
 #========================================================================
 #===============================================================================
-echo "Usage:"
-echo "    cat backup-tails-drill-draft.sh"
-echo "exiting..."
+echo "TODO: backup-tails-drill-draft.sh"
 exit 0
-
-#### 1. Use official documentation _____________________________________________
-xdg-open https://tails.boum.org/doc/first_steps/persistence/backup/index.en.html
-
-#### 2. Other references _______________________________________________________
-# For now, some randon links. Not really tested in deep. Still better to follow
-# official documentation
-# - https://www.reddit.com/r/tails/comments/gp42u0/backup_your_gpgpgp_keys_dont_whine_about_losing/
-# - https://www.reddit.com/r/tails/comments/50bs1z/tails_usb_backup/
