@@ -1,12 +1,13 @@
 #!/bin/sh
 #===============================================================================
 #
-#          FILE:  example.sh
+#          FILE:  90-example.sh
 #
-#         USAGE:  cat example.sh
+#         USAGE:  Deploy on /usr/local/bin/90-example.sh
+#                 Run with, for example:
+#                    sudo 90-example.sh
 #
-#   DESCRIPTION:  example.sh is an script to demonstrate how to document an
-#                 script.
+#   DESCRIPTION:  Lorem ipsum dolor semet
 #
 #       OPTIONS:  ---
 #  REQUIREMENTS:  ---
@@ -19,7 +20,5 @@
 #       CREATED:  2020-10-17 09:08 UTC
 #      REVISION:  ---
 #===============================================================================
-echo "Usage:"
-echo "    cat example.sh"
-echo "exiting..."
+echo "This is an 90-example.sh"
 exit 0

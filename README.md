@@ -15,16 +15,21 @@ cd /home/amnesia/Persistent/TailsOS-for-non-whistleblowers
   official documentation.
 
 - [docs/git-setup.sh](docs/git-setup.sh)
-- [docs/oh-my-zsh-setup.sh](docs/oh-my-zsh-setup.sh)
-    - [docs/zsh-setup.sh](docs/zsh-setup.sh)
 - [docs/where-is-my-data-on-tails.md](docs/where-is-my-data-on-tails.md)
 - [docs/password-manangement.md](docs/password-manangement.md)
 - [docs/backup-tails-drill-draft.sh](docs/backup-tails-drill-draft.sh)
-- [docs/vscode-portable-setup.sh](docs/vscode-portable-setup.sh)
-  - Alternative: [docs/vscode-deb-setup.sh](docs/vscode-portable-setup.sh)
+- **VSCode**
+  - [docs/vscode-portable-setup.sh](docs/vscode-portable-setup.sh)
+  - [docs/vscode-deb-setup.sh](docs/vscode-portable-setup.sh) (not working)
+- **Terminal customization (i.e. command line, cli...)**
+  - [docs/bash-setup.sh](docs/zsh-setup.sh)
+  - [docs/zsh-setup.sh](docs/zsh-setup.sh)
+  - [docs/oh-my-zsh-setup.sh](docs/oh-my-zsh-setup.sh)
+  - [MVP of Oh My Zsh on TailsOS #5 (external link)](https://github.com/fititnt/TailsOS-for-non-whistleblowers/issues/5)
 
 ## Rocha to-do list
 In addition to [fititnt/TailsOS-for-non-whistleblowers/issues](https://github.com/fititnt/TailsOS-for-non-whistleblowers/issues):
+
 1. <s>Restart from my main OS on Tails and Commit from there</s>
 2. <s>Do commits via git, and not via GitHub web interface</s>
 3. Fix issue `Error: net::ERR_CONNECTION_REFUSED` on VSCode when trying to check for extensions
@@ -32,7 +37,7 @@ In addition to [fititnt/TailsOS-for-non-whistleblowers/issues](https://github.co
 5. Send e-mail with Tunderbird
 6. Send e-mail with Tunderbird, but now encrypted
 7. Persistence: keep changes on Wallpaper (yes, TailsOS by default clean everyting)
-8. Persistence: remember (or re-insert on demand) `config --global user.name/user.email`
+8. <s>Persistence: remember (or re-insert on demand) `config --global user.name/user.email`</s>
 9. Discover how to customize Keyboard layout to Brazilian ABNT (the one with `ç`)
 
 ## License

@@ -63,3 +63,8 @@ cp /home/amnesia/.bash_profile /live/persistence/TailsData_unlocked/dotfiles/
 # NOT DEFAULT. Here just as example cp command. If this file exist, will be
 # used instead of /home/amnesia/.profile
 cp /home/amnesia/.bash_login /live/persistence/TailsData_unlocked/dotfiles/
+
+#### EXTRA: manual symlinks ___________________________________________________
+# Tails will already create these symlinks on reboot, even from folders. This is
+# one example of how to do it manually with ~/bin folder
+# ln -s /live/persistence/TailsData_unlocked/dotfiles/bin/ ~/bin
