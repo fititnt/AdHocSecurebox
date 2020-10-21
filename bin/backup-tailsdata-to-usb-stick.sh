@@ -5,6 +5,8 @@
 #
 #         USAGE:  If this script already was added on the path (e.g. ~/bin), run:
 #                     backup-tailsdata-to-usb-stick.sh
+#                 Note: this script will ask for sudo powers on some parts, but
+#                 do not execute with sudo script.sh. This is intentional.
 #
 #   DESCRIPTION:  backup-tailsdata-to-usb-stick.sh backup Tails Data with rsync
 #                 strategy from the current running tails, e.g. the path
@@ -34,6 +36,9 @@ set -e
 # https://tails.boum.org/doc/first_steps/persistence/backup/index.en.html.
 # If you really sure, you can execute this line:
 #     rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData
+# With sudo, you is likely to copy even system files (this is what this script)
+# do by default
+#     sudo rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData
 
 ##### Variables ________________________________________________________________
 BACKUP_TAILSDATA_RSYNC_FILTER="- .tailsdata-is-source
@@ -98,6 +103,14 @@ EOF
     # set +x
 
 fi
+
+##### The command transfer command _____________________________________________
+# This command is based on official documentation:
+#     sudo rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData
+# This site gives an explanation
+#     https://explainshell.com/explain?cmd=sudo+rsync+-PaSHAXv+--del+%2Flive%2Fpersistence%2FTailsData_unlocked%2F+%2Fmedia%2Famnesia%2FTailsData
+
+sudo rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData
 
 # .rsync-filter
 
