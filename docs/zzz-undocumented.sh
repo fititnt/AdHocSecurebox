@@ -15,6 +15,10 @@ rm -r ~/bin
 ln -s /home/amnesia/Persistent/TailsOS-for-non-whistleblowers/bin ~/bin
 source ~/.bash_profile
 
+# Copy VSCode to ram to improve performance
+cp -r /home/amnesia/Persistent/VSCode-linux-x64/ /home/amnesia/Desktop
+/home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox /home/amnesia/Persistent/TailsOS-for-non-whistleblowers
+
 sudo rm /live/persistence/TailsData_unlocked/.rsync-filter
 
 cat << 'EOF' | sudo tee /live/persistence/TailsData_unlocked/.rsync-filter

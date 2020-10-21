@@ -13,11 +13,16 @@
 #                     /live/persistence/TailsData_unlocked/
 #                 to an external USB stick already opened at the path
 #                     /media/amnesia/TailsData/
+#                 Both backup-tailsdata-to-usb-stick.sh and restore-tailsdata-from-usb-stick.sh
+#                 consider the concept that only one USB stick are considered
+#                 the primary/source of data, and the backup is an replica.
+#                 This is controlled with the empty file '.tailsdata-is-source'
 #                 This script initially based on the official Tails wiki at
 #                 https://tails.boum.org/doc/first_steps/persistence/backup/index.en.html
 #
 #       OPTIONS:  ---
-#  REQUIREMENTS:  ---
+#  REQUIREMENTS:  1. The USB stick to send the backup should not have the file .tailsdata-is-source:
+#                        /media/amnesia/TailsData/.tailsdata-is-source
 #          BUGS:  ---
 #         NOTES:  ---
 #        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>
@@ -55,7 +60,7 @@ then
     exit 1
 fi
 
-### /media/amnesia/TailsData/.tailsdata-is-source not exists? ...................
+### /media/amnesia/TailsData/.tailsdata-is-source exists? .......................
 if [ -f "/media/amnesia/TailsData/.tailsdata-is-source" ];
 then
     echo "WARNING! /media/amnesia/TailsData/.tailsdata-is-source exist!"
@@ -79,6 +84,7 @@ if [ ! -f "/live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source"
 then
     echo "INFO: /live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source does not exist yet"
     echo "      Creating now. This will protect this USB stick from accidental restore."
+    echo "      (compatible with restore-tailsdata-from-usb-stick.sh)"
     touch /live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source
 fi
 
@@ -110,14 +116,32 @@ fi
 # This site gives an explanation
 #     https://explainshell.com/explain?cmd=sudo+rsync+-PaSHAXv+--del+%2Flive%2Fpersistence%2FTailsData_unlocked%2F+%2Fmedia%2Famnesia%2FTailsData
 
-sudo rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData
+# the next line, set -x, is one way to POSIX shell print the command for user.
+set -x
 
-# .rsync-filter
+# sudo rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData
+sudo rsync \
+    --partial --progress \
+    --archive \
+    --sparse \
+    --hard-links \
+    --acls \
+    --xattrs \
+    --verbose \
+    --delete-during \
+    /live/persistence/TailsData_unlocked/ \
+    /media/amnesia/TailsData
 
-echo "TODO: Finish the backup-tailsdata-to-usb-stick.sh"
+set +x
+
+# TODO: check if /live/persistence/TailsData_unlocked/.rsync-filter is being considered.
+#       I suspect that still not. (fititnt, 2020-10-21 20:39 UTC)
+
+# TODO: implement some way to tell rsync to search for any .rsync-filter on
+#       subdirectories  (fititnt, 2020-10-21 20:39 UTC)
 
 PROGRAM_END_DATETIME=$(date +%s)
 PROGRAM_TIME=$((PROGRAM_END_DATETIME-PROGRAM_START_DATETIME))
 
-echo "Runtime: $PROGRAM_TIME"
+echo "$PROGRAM_NAME Runtime: $PROGRAM_TIME"
 exit 0

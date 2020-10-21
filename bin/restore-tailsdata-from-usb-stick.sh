@@ -5,6 +5,8 @@
 #
 #         USAGE:  If this script already was added on the path (e.g. ~/bin), run:
 #                     restore-tailsdata-from-usb-stick.sh
+#                 Note: this script will ask for sudo powers on some parts, but
+#                 do not execute with sudo script.sh. This is intentional.
 #
 #   DESCRIPTION:  restore-tailsdata-from-usb-stick.sh Restore (rescue) Tails Data
 #                 with rsync strategy from an external USB stick already opened at
@@ -12,11 +14,16 @@
 #                     /media/amnesia/TailsData/
 #                 To the current he current running tails, e.g. the path
 #                     /live/persistence/TailsData_unlocked/
+#                 Both backup-tailsdata-to-usb-stick.sh and restore-tailsdata-from-usb-stick.sh
+#                 consider the concept that only one USB stick are considered
+#                 the primary/source of data, and the backup is an replica.
+#                 This is controlled with the empty file '.tailsdata-is-source'
 #                 This script initially based on the official Tails wiki at
 #                 https://tails.boum.org/doc/first_steps/persistence/rescue/index.en.html
 #
 #       OPTIONS:  ---
-#  REQUIREMENTS:  ---
+#  REQUIREMENTS:  1. The current TailsData_unlocked should not contain the file .tailsdata-is-source:
+#                        /live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source
 #          BUGS:  ---
 #         NOTES:  ---
 #        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>
@@ -30,25 +37,96 @@ PROGRAM_START_DATETIME=$(date +%s)
 PROGRAM_NAME=$(basename "$0")
 set -e
 
+# TODO: the restore-tailsdata-from-usb-stick.sh shoud be tested at least once (fititnt, 2020-10-21 21:36 UTC) 
 
 #### [ALTERNATIVE] One-liner script ____________________________________________
 # The restore-tailsdata-from-usb-stick.sh was based on the documentation at 
 # https://tails.boum.org/doc/first_steps/persistence/rescue/index.en.html.
 # If you really sure, you can execute this line:
 #     rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked
+#
+# What this script do is, since is already shipped with this project, do some
+# safety checks (like require that the current file does not exist)
+#     /live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source
+# This file was created by backup-tailsdata-to-usb-stick.sh when doing a push
+# backup to an external drive and we assume that if this exist on current system
+# you may be using this script wrong.
 
 ##### Safety checks ____________________________________________________________
+# These safety checks warn the user if the USB stick is not unlocked and if
+# do exist some error with .tailsdata-is-source.
+# Only one USB stick can have the file .tailsdata-is-source (used to know
+# if an storage was marked as source of data and implicitly assume the other
+# are replicas; no .tailsdata-is-replica is created)
+# Note that restore-tailsdata-from-usb-stick.sh
+
+### /media/amnesia/TailsData/ is availible? ....................................
 if [ ! -d "/media/amnesia/TailsData/" ];
 then
-    echo "ERROR! /media/amnesia/TailsData/ does exist! You must unlock the external USB stick first. Exiting..."
+    echo "ERROR! /media/amnesia/TailsData/ does exist!  "
+    echo "       You must unlock the external USB stick first."
+    echo "       Exiting..."
     exit 1
 fi
 
-echo "TODO: restore-tailsdata-from-usb-stick.sh"
+## /live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source ........
+# If the current system already have the .tailsdata-is-source, this script will
+# assume that the user is trying to recover to a system marked as primary/source
+if [ -f "/live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source" ];
+then
+    echo "ERROR: the folowing file exist on this Tails installation:"
+    echo "           /live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source "
+    echo "       This file either was created by backup-tailsdata-to-usb-stick.sh or equivalent"
+    echo "       and it means that the local TailsData_unlocked was considered an"
+    echo "       primary/source of data and should be protected from accidental recover"
+    echo ""
+    echo "       If you are really sure that this is not the case (and not just running"
+    echo "       the restore script by accident), delete the file with"
+    echo "           rm /live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source"
+    echo "       and re-run this script"
+    exit 2
+fi
+##### The command transfer command _____________________________________________
+# This command is based on official documentation (just added sudo):
+#     rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked
+# This site gives an explanation
+#     https://explainshell.com/explain?cmd=rsync+-PaSHAXv+--del+%2Fmedia%2Famnesia%2FTailsData%2F+%2Flive%2Fpersistence%2FTailsData_unlocked
 
+
+# the next line, set -x, is one way to POSIX shell print the command for user.
+set -x
+
+# sudo rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked
+sudo rsync \
+    --partial --progress \
+    --archive \
+    --sparse \
+    --hard-links \
+    --acls \
+    --xattrs \
+    --verbose \
+    --delete-during \
+    /media/amnesia/TailsData/ \
+    /live/persistence/TailsData_unlocked
+
+set +x
+
+##### Post-recovery steps ______________________________________________________
+
+#### /media/amnesia/TailsData/.tailsdata-is-source .............................
+if [ -f "/media/amnesia/TailsData/.tailsdata-is-source" ];
+then
+    echo "INFO: The following file still exist on USB stick"
+    echo "          /media/amnesia/TailsData/.tailsdata-is-source"
+    echo "      This script will not delete if for you."
+fi
+
+#### Mark this recovered installation as primary ...............................
+echo "TODO: as part of the recovery process, if no errors on rsync happened"
+echo "      we should create for the user the .tailsdata-is-source"
 
 PROGRAM_END_DATETIME=$(date +%s)
 PROGRAM_TIME=$((PROGRAM_END_DATETIME-PROGRAM_START_DATETIME))
 
-echo "Runtime: $PROGRAM_TIME"
+echo "$PROGRAM_NAME Runtime: $PROGRAM_TIME"
 exit 0
