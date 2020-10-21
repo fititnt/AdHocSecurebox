@@ -16,7 +16,7 @@ cd /home/amnesia/Persistent/TailsOS-for-non-whistleblowers
 - [docs/git-setup.sh](docs/git-setup.sh)
 - [docs/where-is-my-data-on-tails.md](docs/where-is-my-data-on-tails.md)
 - [docs/password-manangement.md](docs/password-manangement.md)
-- [docs/backup-tails-drill-draft.sh](docs/backup-tails-drill-draft.sh)
+- [docs/backup-and-recovery.md](docs/backup-and-recovery.md)
 - **VSCode**
   - [docs/vscode-portable-setup.sh](docs/vscode-portable-setup.sh)
   - [docs/vscode-deb-setup.sh](docs/vscode-portable-setup.sh) (not working)
