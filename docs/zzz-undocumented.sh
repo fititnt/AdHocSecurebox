@@ -14,3 +14,10 @@ echo $PATH
 rm -r ~/bin
 ln -s /home/amnesia/Persistent/TailsOS-for-non-whistleblowers/bin ~/bin
 source ~/.bash_profile
+
+sudo rm /live/persistence/TailsData_unlocked/.rsync-filter
+
+cat << 'EOF' | sudo tee /live/persistence/TailsData_unlocked/.rsync-filter
+- .tailsdata-is-source
+- .tailsdata-is-replica
+EOF
