@@ -5,17 +5,16 @@
 #
 #         USAGE:  tails-code
 #
-#   DESCRIPTION:  Execute all .sh files on the directory
-#                     ~/bin/startup-scripts/
-#                 if the path exists. Then will search for files on
-#                     ~/bin/startup-scripts-examples/
-#                 Tip: you can also copy the contents of this file to some file
-#                 that is executed by default on your terminal, like the
-#                      ~/.bash_profile
+#   DESCRIPTION:  tails-code is an somewhat equivalent to `code` on Linux/Mac,
+#                 but focused on running on Tails. This script assumes
+#                 VSCode portable was installed based on the
+#                 docs/docs/vscode-portable-setup.sh
 #
 #       OPTIONS:  ---
 #  REQUIREMENTS:  ---
-#          BUGS:  ---
+#          BUGS:  1. tails-code (at least alone) will not persist VSCode
+#                    customizations. You would need to copy/rsync back
+#                    from Desktop to Persistance the data/ folder
 #         NOTES:  ---
 #        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>, based on Patrick Blook work
 #       COMPANY:  Etica.AI
@@ -24,12 +23,28 @@
 #       CREATED:  2020-10-23 21:54 UTC
 #      REVISION:  ---
 #===============================================================================
-echo "TODO: tails-code"
 
-
-if [ -f "/home/amnesia/Desktop/VSCode-linux-x64/code" ];
+if [ -f "/home/amnesia/Desktop/VSCode-linux-x64/code1" ];
 then
-    echo "tails-code: code already loaded on RAM"
+    echo "tails-code: code already loaded on RAM. Executing now"
     /home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox $1
     exit 0
 fi
+
+if [ ! -d "/home/amnesia/Persistent/software/portable/VSCode-linux-x64" ];
+then
+    echo "ERROR! The following path do not exist on disk"
+    echo "           /home/amnesia/Persistent/software/portable/VSCode-linux-x64"
+    echo "       Please read the docs/vscode-portable-setup.sh"
+    echo "       This scrilt will not download for you (not yet)"
+    echo "       Exiting..."
+    exit 1
+fi
+
+echo "tails-code: load to RAM (~/Desktop/VSCode-linux-x64/code)"
+cp -r /home/amnesia/Persistent/software/portable/VSCode-linux-x64/ /home/amnesia/Desktop
+
+echo "tails-code: executing from RAM (~/Desktop/VSCode-linux-x64/code)"
+echo "tails-code: INFO! tails-code v1.0 (at least alone) will not persist VSCode customizations."
+echo "            You would need to copy/rsync back from Desktop to Persistance the data/ folder"
+/home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox $1
