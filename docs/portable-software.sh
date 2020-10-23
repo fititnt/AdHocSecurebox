@@ -1,9 +1,9 @@
 #!/bin/sh
 #===============================================================================
 #
-#          FILE:  vscode-deb-setup.sh
+#          FILE:  portable-software.sh
 #
-#         USAGE:  cat vscode-deb-setup.sh
+#         USAGE:  cat portable-software.sh
 #
 #   DESCRIPTION:  Optionated strategy of "portable software" on TailsOS.
 #                 See https://github.com/fititnt/TailsOS-for-non-whistleblowers/issues/13
@@ -20,7 +20,7 @@
 #      REVISION:  ---
 #===============================================================================
 echo "Usage:"
-echo "    cat vscode-deb-setup.sh"
+echo "    cat portable-software.sh"
 echo "exiting..."
 exit 0
 
