@@ -39,6 +39,30 @@ cp /home/amnesia/.gitconfig /live/persistence/TailsData_unlocked/dotfiles/
 # customization will already be on the file
 #     /live/persistence/TailsData_unlocked/dotfiles/.gitconfig
 
+
+#### 3 [OPTIONAL] Structured directory layout for git projects _________________
+# If you're a frequent git/github/gitlab user, some more organized directory
+# structure may makes sense. This one will be somewhat optionated
+mkdir /home/amnesia/Persistent/git
+
+# Since is possible to have multiple projects with same name (either individual
+# or from organization) one hint is create a base directory for each username.
+# On this example, we will use the initial version of this script that
+# was hosted on https://github.com/fititnt/TailsOS-for-non-whistleblowers/
+
+# Username on this case was "fititnt". If you have your fork, use your username
+mkdir /home/amnesia/Persistent/git/fititnt
+
+# Change to the user/organization directory before clone
+cd /home/amnesia/Persistent/git/fititnt
+
+# As rule, use https if is someone else repository.
+git clone https://github.com/fititnt/TailsOS-for-non-whistleblowers.git
+# git clone git@github.com:fititnt/TailsOS-for-non-whistleblowers.git
+
+# On this demo, this would be your final result
+cd /home/amnesia/Persistent/git/fititnt/TailsOS-for-non-whistleblowers
+
 #### [OPTIONAL] Additional software ____________________________________________
 # TailsOS (tested v4.12) comes with git cli by default, but not some extra
 # packages that Rocha likes. It's up to you if you want them.

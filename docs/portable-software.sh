@@ -60,3 +60,26 @@ mkdir /home/amnesia/Persistent/software/appimage
 
 #### 3.4 Path for persistent .deb installers ...................................
 mkdir /home/amnesia/Persistent/software/deb
+
+#### 4 [OPTIONAL] Structured directory layout for git projects _________________
+# If you're a frequent git/github/gitlab user, some more organized directory
+# structure may makes sense. This one will be somewhat optionated
+mkdir /home/amnesia/Persistent/git
+
+# Since is possible to have multiple projects with same name (either individual
+# or from organization) one hint is create a base directory for each username.
+# On this example, we will use the initial version of this script that
+# was hosted on https://github.com/fititnt/TailsOS-for-non-whistleblowers/
+
+# Username on this case was "fititnt". If you have your fork, use your username
+mkdir /home/amnesia/Persistent/git/fititnt
+
+# Change to the user/organization directory before clone
+cd /home/amnesia/Persistent/git/fititnt
+
+# As rule, use https if is someone else repository.
+git clone https://github.com/fititnt/TailsOS-for-non-whistleblowers.git
+# git clone git@github.com:fititnt/TailsOS-for-non-whistleblowers.git
+
+# On this demo, this would be your final result
+cd /home/amnesia/Persistent/git/fititnt/TailsOS-for-non-whistleblowers
