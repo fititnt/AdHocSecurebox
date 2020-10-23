@@ -10,10 +10,15 @@ df -h
 
 echo $PATH
 
+# Only for rocha usage: this will make always the ~/bin folder point to the master repository
+#  ln -s /home/amnesia/Persistent/git/fititnt/TailsOS-for-non-whistleblowers/bin /live/persistence/TailsData_unlocked/dotfiles/bin
+
 # Link local copy of git repository to the ~/bin, so we can do live testing
 rm -r ~/bin
-ln -s /home/amnesia/Persistent/TailsOS-for-non-whistleblowers/bin ~/bin
+ln -s /home/amnesia/Persistent/git/fititnt/TailsOS-for-non-whistleblowers/bin ~/bin
 source ~/.bash_profile
+
+
 
 # Copy VSCode to ram to improve performance
 cp -r /home/amnesia/Persistent/VSCode-linux-x64/ /home/amnesia/Desktop

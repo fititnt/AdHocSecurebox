@@ -26,6 +26,9 @@ echo "    cat vscode-portable-setup.sh"
 echo "exiting..."
 exit 0
 
+#### vscode-portable-setup.sh v1.1 version, START _____________________________
+# TODO: remove this area (fititnt, 2020-10-23 22:25 UTC)
+
 # TODO: re-do the work lost from 1.0 later (fititnt, 2020-10-17 11:02 UTC)
 
 # @see https://code.visualstudio.com/docs/editor/portable
@@ -51,3 +54,51 @@ cp -r /home/amnesia/Persistent/VSCode-linux-x64/ /home/amnesia/Desktop
 # TODO: fix issue `Error: net::ERR_CONNECTION_REFUSED` on VSCode when trying to check for extensions (fititnt, 2020-10-16 18:17 BRT)
 
 # TODO: install at least the https://marketplace.visualstudio.com/items?itemName=AlanWalk.markdown-toc (fititnt, 2020-10-16 12:33 UTC)
+
+#### vscode-portable-setup.sh v1.1 version, END ________________________________
+# TODO: refactor vscode-portable-setup witht he cryptomator-setup.sh style (fititnt, 2020-10-23 22:27 UTC)
+
+# @see https://code.visualstudio.com/docs/editor/portable
+VSCODE_DOWNLOAD_URL="https://go.microsoft.com/fwlink/?LinkID=620884"
+
+#******************************************************************************#
+#                                ONE TIME SETUP                                #
+# Recommended if is just testing the vscode or persistence is locked           #
+#******************************************************************************#
+
+#### A.1. Choose a place to download from ______________________________________
+
+# Choose one of these
+#   1. GitHub [Not tested]: https://github.com/microsoft/vscode/releases
+#   2. Official site: https://code.visualstudio.com/Download
+#   3. [private copy] From some USB stick (for offline usage)
+#   4. [private copy] From some copy on your Dropbox, Google Drive, Ftp server, etc
+
+# On this setup, we will assume you will want download from original site via
+# command line (It's the VSCODE_DOWNLOAD_URL value)
+
+#### A.2. Download VSCode and move to /home/amnesia/Desktop/VSCode-linux-x64 ___
+# wget https://go.microsoft.com/fwlink/?LinkID=620884 -O /tmp/vscode.tar.gz
+wget $VSCODE_DOWNLOAD_URL -O /tmp/vscode.tar.gz
+
+# Uncompress to /home/amnesia/Desktop/VSCode-linux-x64 
+cd /home/amnesia/Desktop
+tar -vzxf /tmp/vscode.tar.gz
+
+#### A.3. Run VSCode from RAM (~/Desktop/VSCode-linux-x64/code _________________
+
+# Choose one of these alternatives
+
+### A.3.1 VSCode run, via full path ............................................
+# This is will work even if you don't configured aliases
+/home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox
+
+# To Open some specific folder, like /home/amnesia/Persistent/git/myusername/my-project
+#    /home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox /home/amnesia/Persistent/git/myusername/my-project
+
+### A.3.2 tails-code ...........................................................
+# If tails-code is added to your path, just run
+tails-code
+
+# To Open some specific folder, like /home/amnesia/Persistent/git/myusername/my-project
+#    tails-code /home/amnesia/Persistent/git/myusername/my-project

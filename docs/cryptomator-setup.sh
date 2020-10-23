@@ -43,7 +43,7 @@ CRYPTOMATOR_VERSION="1.5.8"
 #   3. [private copy] From some USB stick (for offline usage)
 #   4. [private copy] From some copy on your Dropbox, Google Drive, Ftp server, etc
 
-# On this setup, we will assume you will wand download from original site via
+# On this setup, we will assume you will want download from original site via
 # command line. But you could (and maybe should based on your threat model) do
 # it manually
 
