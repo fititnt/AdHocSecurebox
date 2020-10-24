@@ -1,0 +1,45 @@
+#!/bin/sh
+#===============================================================================
+#
+#          FILE:  tails-ui-options-export
+#
+#         USAGE:  tails-ui-options-export
+#
+#   DESCRIPTION:  tails-ui-options-export
+#       OPTIONS:  ---
+#  REQUIREMENTS:  ---
+#          BUGS:  1. 'sudo tails-ui-options-export', while would use an more
+#                     secure place to store de configurations, with the default
+#                     instructions on full guide is likely to not be added
+#                     on the path, so the user would need to insert the
+#                     complete path
+#         NOTES:  ---
+#        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>
+#       COMPANY:  Etica.AI
+#       LICENSE:  Public Domain
+#       VERSION:  1.0
+#       CREATED:  2020-10-24 21:51 UTC
+#      REVISION:  ---
+#===============================================================================
+
+set -e
+
+if [ $USER = root ];
+then 
+    # Running with sudo. We will avoid use /live/persistence/TailsData_unlocked/
+    TAILS_UI_EXPORT_FILE_BY_USER="/live/persistence/TailsData_unlocked/.tails-ui-options"
+else
+    # Running as amnesia. We will use a dot file on 
+    TAILS_UI_EXPORT_FILE_BY_USER="/live/persistence/TailsData_unlocked/Persistent/.tails-ui-options"
+fi
+
+CLI_FIRST_OPTION="$1"
+TAILS_UI_EXPORT_FILE="${CLI_FIRST_OPTION:-$TAILS_UI_EXPORT_FILE_BY_USER}"
+
+echo "tails-ui-options-export: [INFO] exporting to $TAILS_UI_EXPORT_FILE"
+
+# dconf dump / > /live/persistence/TailsData_unlocked/Persistent/.tails-ui-options
+dconf dump / > "$TAILS_UI_EXPORT_FILE"
+
+# We make this file readable only by the user. This may be pertinent if is root user
+chmod 0600 "$TAILS_UI_EXPORT_FILE"

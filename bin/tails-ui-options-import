@@ -1,0 +1,55 @@
+#!/bin/sh
+#===============================================================================
+#
+#          FILE:  tails-ui-options-import
+#
+#         USAGE:  tails-ui-options-import 
+#                    No parameters: import from /home/amnesia/Persistent/.tails-ui-options
+#                 sudo tails-ui-options-import
+#                    Sudo, no parameters: import from /live/persistence/TailsData_unlocked/.tails-ui-options
+#                 tails-ui-options-import /path/to/file.conf
+#                     With parameter, load from specific file
+#                 tails-ui-options-import /media/amnesia/TailsData/Persistent/.tails-ui-options
+#                     With parameter, example loading from backuped USB stick
+#
+#   DESCRIPTION:  tails-ui-options-import
+#       OPTIONS:  ---
+#  REQUIREMENTS:  ---
+#          BUGS:  1. 'sudo tails-ui-options-import', while would use an more
+#                     secure place to store de configurations, with the default
+#                     instructions on full guide is likely to not be added
+#                     on the path, so the user would need to insert the
+#                     complete path
+#         NOTES:  ---
+#        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>
+#       COMPANY:  Etica.AI
+#       LICENSE:  Public Domain
+#       VERSION:  1.0
+#       CREATED:  2020-10-24 22:16 UTC
+#      REVISION:  ---
+#===============================================================================
+
+set -e
+
+if [ $USER = root ];
+then 
+    # Running with sudo. We will avoid use /live/persistence/TailsData_unlocked/
+    TAILS_UI_EXPORT_FILE_BY_USER="/live/persistence/TailsData_unlocked/.tails-ui-options"
+else
+    # Running as amnesia. We will use a dot file on 
+    TAILS_UI_EXPORT_FILE_BY_USER="/live/persistence/TailsData_unlocked/Persistent/.tails-ui-options"
+fi
+
+CLI_FIRST_OPTION="$1"
+TAILS_UI_EXPORT_FILE="${CLI_FIRST_OPTION:-$TAILS_UI_EXPORT_FILE_BY_USER}"
+
+if [ -f "$TAILS_UI_EXPORT_FILE=" ];
+then
+    echo "ERROR! $TAILS_UI_EXPORT_FILE not found! Can't import"
+    exit 2
+fi
+
+echo "[INFO] trying to import from $TAILS_UI_EXPORT_FILE"
+
+# dconf load / < /live/persistence/TailsData_unlocked/Persistent/.tails-ui-options
+dconf load / < "$TAILS_UI_EXPORT_FILE"
