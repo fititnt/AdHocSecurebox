@@ -61,6 +61,13 @@ mkdir /home/amnesia/Persistent/software/appimage
 #### 3.4 Path for persistent .deb installers ...................................
 mkdir /home/amnesia/Persistent/software/deb
 
+#### 3.5 Path for sinle file binaries to add to the path .......................
+# See file dotfiles/example/rocha/.bash_profile
+mkdir /home/amnesia/Persistent/software/bin
+# Or you could use the /bin on persistence
+#     mkdir /home/amnesia/Persistent/bin
+
+
 #### 4 [OPTIONAL] Structured directory layout for git projects _________________
 # If you're a frequent git/github/gitlab user, some more organized directory
 # structure may makes sense. This one will be somewhat optionated

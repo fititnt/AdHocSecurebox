@@ -22,6 +22,26 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 #### Custom additions from original ~/.profile, START __________________________
+
+#### /home/amnesia/Persistent/software/bin .....................................
+# @see docs/portable-software.sh
+# If this path exists, executable binaries here will have priority over
+# /home/amnesia/bin.
+if [ -d "/home/amnesia/Persistent/software/bin" ] ; then
+    PATH="/home/amnesia/Persistent/software/bin:$PATH"
+fi
+
+#### /home/amnesia/Persistent/bin ..............................................
+# @see docs/portable-software.sh
+# If this path exists, executable binaries here will have priority over
+# /home/amnesia/Persistent/software/bin and /home/amnesia/bin.
+if [ -d "/home/amnesia/Persistent/bin" ] ; then
+    PATH="/home/amnesia/Persistent/bin:$PATH"
+fi
+
+#### Startup scripts ...........................................................
+# TODO: this feature was not fully tested yet. (fititnt, 2020-10-24 18:42 UTC)
+#
 # Note: this code exists both on the my-git-repo/bin/startup-scripts.sh and
 #       my-git-repo/dotfiles/example/rocha/.bash_profile
 
