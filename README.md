@@ -10,11 +10,9 @@ cd /home/amnesia/Persistent/git/fititnt/TailsOS-for-non-whistleblowers
 
 ## Guides
 
-> Tip: Consider check [Tails: Features and included software](https://tails.boum.org/doc/about/features/index.en.html)
-  official documentation.
-
 Look at the folder [docs/](docs/) for POSIX scripts and markdown files mean to be read.
 
+<!--
 - [docs/git-setup.sh](docs/git-setup.sh)
 - [docs/where-is-my-data-on-tails.md](docs/where-is-my-data-on-tails.md)
 - [docs/password-manangement.md](docs/password-manangement.md)
@@ -29,6 +27,7 @@ Look at the folder [docs/](docs/) for POSIX scripts and markdown files mean to b
   - [docs/zsh-setup.sh](docs/zsh-setup.sh)
   - [docs/oh-my-zsh-setup.sh](docs/oh-my-zsh-setup.sh)
   - [MVP of Oh My Zsh on TailsOS #5 (external link)](https://github.com/fititnt/TailsOS-for-non-whistleblowers/issues/5)
+-->
 
 ## Scripts
 
