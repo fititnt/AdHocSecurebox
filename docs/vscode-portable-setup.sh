@@ -28,41 +28,6 @@ echo "    cat vscode-portable-setup.sh"
 echo "exiting..."
 exit 0
 
-#### vscode-portable-setup.sh v1.1 version, START _____________________________
-# TODO: remove this area (fititnt, 2020-10-23 22:25 UTC)
-
-# TODO: re-do the work lost from 1.0 later (fititnt, 2020-10-17 11:02 UTC)
-
-# @see https://code.visualstudio.com/docs/editor/portable
-wget https://go.microsoft.com/fwlink/?LinkID=620884 -O /tmp/vscode.tar.gz
-cd /home/amnesia/Persistent
-tar -vzxf /tmp/vscode.tar.gz
-cd /home/amnesia/Persistent/VSCode-linux-x64
-# Create data/ folder (this, with exeption of temp files on /tmp) will store extensions, configs, etc
-mkdir data/
-
-# To update, just move data/ folder for a new, downloaded vscode.
-
-# Needs --no-sandbox, see https://github.com/microsoft/vscode/issues/81056
-/home/amnesia/Persistent/VSCode-linux-x64/code --no-sandbox --disable-gpu
-
-# Open directory with vscode (from Pen drive)
-/home/amnesia/Persistent/VSCode-linux-x64/code --no-sandbox --disable-gpu /home/amnesia/Persistent/TailsOS-for-non-whistleblowers
-
-# Copy VSCode to ram to improve performance
-cp -r /home/amnesia/Persistent/VSCode-linux-x64/ /home/amnesia/Desktop
-/home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox /home/amnesia/Persistent/TailsOS-for-non-whistleblowers
-
-# TODO: fix issue `Error: net::ERR_CONNECTION_REFUSED` on VSCode when trying to check for extensions (fititnt, 2020-10-16 18:17 BRT)
-
-# TODO: install at least the https://marketplace.visualstudio.com/items?itemName=AlanWalk.markdown-toc (fititnt, 2020-10-16 12:33 UTC)
-
-#### vscode-portable-setup.sh v1.1 version, END ________________________________
-# TODO: refactor vscode-portable-setup witht he cryptomator-setup.sh style (fititnt, 2020-10-23 22:27 UTC)
-
-# @see https://code.visualstudio.com/docs/editor/portable
-VSCODE_DOWNLOAD_URL="https://go.microsoft.com/fwlink/?LinkID=620884"
-
 #******************************************************************************#
 #                                ONE TIME SETUP                                #
 # Recommended if is just testing the vscode or persistence is locked           #

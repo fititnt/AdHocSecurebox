@@ -33,6 +33,8 @@ CRYPTOMATOR_VERSION="1.5.8"
 #******************************************************************************#
 #                                ONE TIME SETUP                                #
 # Recommended if is just testing the cryptomator or persistence is locked      #
+# REQUIRES:                                                                    #
+#    No requeriments. Can run even without administrator password              #
 #******************************************************************************#
 
 #### A.1. Choose a place to download from ______________________________________
@@ -83,6 +85,10 @@ chmod +x /home/amnesia/Desktop/cryptomator.AppImage
 #******************************************************************************#
 #                             PERSISTENT USAGE                                 #
 # Alternative to persist installer of cryptomator. Uses previous steps         #
+# REQUIRES:                                                                    #
+#  1. Tails Persistence configured and unlocked                                #
+# NON-REQUERIMENT:                                                             #
+#  2. Tails administrator password likely to not required (TODO: check it)     #
 #******************************************************************************#
 
 ##### B.1. Requisites __________________________________________________________
