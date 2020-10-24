@@ -36,7 +36,9 @@ Look at the folder [bin/](bin/) for inspirational scripts to add to your
 `/home/amnesia/bin`<sup>Amnesic</sup> /
 `/live/persistence/TailsData_unlocked/dotfiles/bin`<sup>Persistent</sup>.
 
-## Rocha to-do list
+<!--
+
+  ## Rocha to-do list
 In addition to [fititnt/TailsOS-for-non-whistleblowers/issues](https://github.com/fititnt/TailsOS-for-non-whistleblowers/issues):
 
 1. <s>Restart from my main OS on Tails and Commit from there</s>
@@ -48,6 +50,8 @@ In addition to [fititnt/TailsOS-for-non-whistleblowers/issues](https://github.co
 7. Persistence: keep changes on Wallpaper (yes, TailsOS by default clean everyting)
 8. <s>Persistence: remember (or re-insert on demand) `config --global user.name/user.email`</s>
 9. Discover how to customize Keyboard layout to Brazilian ABNT (the one with `ç`)
+
+-->
 
 ## License
 
