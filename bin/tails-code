@@ -15,13 +15,17 @@
 #          BUGS:  1. tails-code (at least alone) will not persist VSCode
 #                    customizations. You would need to copy/rsync back
 #                    from Desktop to Persistance the data/ folder
+#                 2. tails-code still not setup some way to proxy VSCode
+#                    connections via tor SOCKS5 proxy at 127.0.0.1:9050
+#                    and --proxy-server=127.0.0.1:9050 options seems to
+#                    not be sufficient
 #         NOTES:  ---
 #        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>, based on Patrick Blook work
 #       COMPANY:  Etica.AI
 #       LICENSE:  Public Domain
-#       VERSION:  1.0
+#       VERSION:  1.1
 #       CREATED:  2020-10-23 21:54 UTC
-#      REVISION:  ---
+#      REVISION:  2020-10-25 22:27 UTC v1.1 Added documentation about proxy bug
 #===============================================================================
 
 if [ -f "/home/amnesia/Desktop/VSCode-linux-x64/code1" ];
@@ -48,3 +52,5 @@ echo "tails-code: executing from RAM (~/Desktop/VSCode-linux-x64/code)"
 echo "tails-code: INFO! tails-code v1.0 (at least alone) will not persist VSCode customizations."
 echo "            You would need to copy/rsync back from Desktop to Persistance the data/ folder"
 /home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox $1
+
+# /home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox --proxy-server=127.0.0.1:9050

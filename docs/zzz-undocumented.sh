@@ -76,3 +76,30 @@ sudo apt autoremove
 #### Changing theme
 sudo apt install gnome-tweaks
 # Sets adawake-dark theme
+
+#### polipo test
+# VSCode on past supported SOCKS5 https://github.com/microsoft/vscode/issues/22214
+# 
+
+# This question https://github.com/microsoft/vscode/issues/22214#issuecomment-285085983
+#   /home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox --proxy-server=socks5://localhost:8888
+#   /home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox --proxy-server=socks5://127.0.0.1:9050
+
+# @see VSCode (Electron/Chromium apps) networking through Tor and/or Tails #23
+# https://github.com/fititnt/TailsOS-for-non-whistleblowers/issues/23
+sudo apt install polipo
+
+# amnesia@amnesia:~/Persistent/git/fititnt/TailsOS-for-non-whistleblowers$ sudo netstat -ntulp
+# [sudo] password for amnesia: 
+# Active Internet connections (only servers)
+# Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+# tcp        0      0 127.0.0.1:9062          0.0.0.0:*               LISTEN      10554/tor           
+# tcp        0      0 127.0.0.1:9040          0.0.0.0:*               LISTEN      10554/tor           
+# tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      10351/cupsd         
+# tcp        0      0 127.0.0.1:9050          0.0.0.0:*               LISTEN      10554/tor           
+# tcp        0      0 127.0.0.1:8123          0.0.0.0:*               LISTEN      10532/polipo        
+# tcp        0      0 127.0.0.1:9051          0.0.0.0:*               LISTEN      4279/python3        
+# tcp        0      0 127.0.0.1:9052          0.0.0.0:*               LISTEN      10554/tor           
+# tcp        0      0 127.0.0.1:9150          0.0.0.0:*               LISTEN      10554/tor           
+# udp        0      0 127.0.0.1:5353          0.0.0.0:*                           10554/tor           
+# udp        0      0 0.0.0.0:68              0.0.0.0:*                           10164/dhclient 
