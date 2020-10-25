@@ -1,0 +1,38 @@
+#!/bin/sh
+#===============================================================================
+#
+#          FILE:  tails-do-it
+#
+#         USAGE:  tails-do-it
+#
+#   DESCRIPTION:  ---
+#
+#       OPTIONS:  ---
+#  REQUIREMENTS:  ---
+#          BUGS:  ---
+#         NOTES:  ---
+#        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>
+#       COMPANY:  Etica.AI
+#       LICENSE:  Public Domain
+#       VERSION:  1.0
+#       CREATED:  2020-10-25 13:13 BRT
+#      REVISION:  ---
+#===============================================================================
+
+TIMESTAMP=$(date "+%Y-%m-%dT%T")
+
+# [ -L "$HOME/bin" ] && echo oi
+
+# if [ -L "~/bin" ] || [ -d "~/bin" ] || [ -f "~/bin" ];
+if [ -e "$HOME/bin" ];
+then
+    echo "tails-do-it: $HOME/bin exists. Backup at $HOME/bin.$TIMESTAMP~"
+    mv "$HOME/bin" "$HOME/bin.$TIMESTAMP~"
+else
+    echo "tails-do-it: WARNING! $HOME/bin already do not exist. You may need to add $HOME/bin to PATH"
+    # echo 'PATH="/home/amnesia/Persistent/bin:$PATH"'
+fi
+
+set -e
+ln -s /home/amnesia/Persistent/git/fititnt/TailsOS-for-non-whistleblowers/bin ~/bin
+set +e
