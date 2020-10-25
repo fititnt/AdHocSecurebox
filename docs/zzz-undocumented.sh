@@ -78,9 +78,8 @@ sudo apt install gnome-tweaks
 # Sets adawake-dark theme
 
 #### polipo test
-# VSCode on past supported SOCKS5 https://github.com/microsoft/vscode/issues/22214
-# 
-
+# VSCode on past supported SOCKS5 https://github.com/microsoft/vscode/issues/22214, https://github.com/microsoft/vscode/issues/9971
+  
 # This question https://github.com/microsoft/vscode/issues/22214#issuecomment-285085983
 #   /home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox --proxy-server=socks5://localhost:8888
 #   /home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox --proxy-server=socks5://127.0.0.1:9050

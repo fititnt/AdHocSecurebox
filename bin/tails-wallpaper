@@ -1,0 +1,100 @@
+#!/bin/sh
+#===============================================================================
+#
+#          FILE:  tails-wallpaper
+#
+#         USAGE:  tails-wallpaper
+#                 tails-wallpaper [/path/to/image.jpg]
+#
+#   DESCRIPTION:  Define desktop wallpaper. Search by wallpaper.jpg/wallpaper.png
+#                 On your Picures path (inclusive external USB).
+#                 See tails-ui-options-export and tails-ui-options-import
+#                 To persist wallpaper after rebooting.
+#
+#  INSTALLATION:  1. Have Tails Persistence/Dotfiles enabled
+#                 2. Copy this file to /live/persistence/TailsData_unlocked/dotfiles/bin/tails-wallpaper
+#                 3. Reboot (requires Unlocking the persistence) and then
+#                    will be added to your PATH
+#       OPTIONS:  [1] /path/to/image.jpg (optional; several options)
+#  REQUIREMENTS:  ---
+#          BUGS:  ---
+#         NOTES:  ---
+#        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>
+#       COMPANY:  Etica.AI
+#       LICENSE:  Public Domain
+#       VERSION:  1.1
+#       CREATED:  2020-10-17 17:45 UTC
+#      REVISION:  2020-10-25 22:49 UTC v1.1 Fork from wallpaper.sh
+#===============================================================================
+
+
+
+##### tails-wallpaper /path/to/image.jpg _______________________________________
+# If the user defined a image, we execute imediatelly
+if [ ! -n $1 ];
+then
+    if [ -f "$1" ];
+    then
+        gsettings set org.gnome.desktop.background picture-uri file:///home/amnesia/Pictures/wallpaper.jpg
+        exit 0
+    else
+        echo "ERROR: File [$1] does not exist"
+        exit 1
+    fi
+fi
+
+##### tails-wallpaper __________________________________________________________
+# User did not defined explicit one wallpaper, we will guess some
+
+
+#### Randomize wallpaper .......................................................
+# Path to search: /home/amnesia/Pictures/wallpapers/*.jpg
+#                 /home/amnesia/Pictures/wallpapers/*.png
+#                 /home/amnesia/Persistent/Pictures/wallpapers/*.jpg
+#                 /home/amnesia/Persistent/Pictures/wallpapers/*.png
+
+
+# TODO: maybe on future look for randon files on some specific folder
+#       and then select one. This is not super critical, so may be never
+#       implemented by the initial author (fititnt, 2020-10-25 22:42)
+
+#### Hardcoded wallpaper files .................................................
+
+### Non-persistent path
+if [ -f "/home/amnesia/Pictures/wallpaper.jpg" ];
+then
+    gsettings set org.gnome.desktop.background picture-uri file:///home/amnesia/Pictures/wallpaper.jpg
+    exit 0
+fi
+
+if [ -f "/home/amnesia/Pictures/wallpaper.png" ];
+then
+    gsettings set org.gnome.desktop.background picture-uri file:///home/amnesia/Pictures/wallpaper.png
+    exit 0
+fi
+
+### Persistence path, but local
+if [ -f "/home/amnesia/Persistent/Pictures/wallpaper.jpg" ];
+then
+    gsettings set org.gnome.desktop.background picture-uri file:///home/amnesia/Persistent/Pictures/wallpaper.jpg
+    exit 0
+fi
+
+if [ -f "/home/amnesia/Persistent/Pictures/wallpaper.png" ];
+then
+    gsettings set org.gnome.desktop.background picture-uri file:///home/amnesia/Persistent/Pictures/wallpaper.png
+    exit 0
+fi
+
+### Images from USB stick
+if [ -f "/media/amnesia/TailsData/Persistent/Pictures/wallpaper.jpg" ];
+then
+    gsettings set org.gnome.desktop.background picture-uri file:///media/amnesia/TailsData/Persistent/Pictures/wallpaper.jpg
+    exit 0
+fi
+
+if [ -f "/media/amnesia/TailsData/Persistent/Pictures/wallpaper.png" ];
+then
+    gsettings set org.gnome.desktop.background picture-uri file:///media/amnesia/TailsData/Persistent/Pictures/wallpaper.png
+    exit 0
+fi
