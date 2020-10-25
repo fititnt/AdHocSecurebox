@@ -17,6 +17,7 @@ echo $PATH
 # Point /home/amnesia/Persistent/software/bin to /home/amnesia/Persistent/git/fititnt/TailsOS-for-non-whistleblowers/bin
 # So rocha do not need to rsync all the files
 ln -s /home/amnesia/Persistent/git/fititnt/TailsOS-for-non-whistleblowers/bin /live/persistence/TailsData_unlocked/Persistent/software/bin
+ln -s /home/amnesia/Persistent/git/fititnt/TailsOS-for-non-whistleblowers/bin /home/amnesia/Persistent/bin
 
 # Link local copy of git repository to the ~/bin, so we can do live testing
 rm -r ~/bin
@@ -71,3 +72,7 @@ sudo apt autoremove
 #  https://askubuntu.com/questions/1190511/set-proxy-for-gnome-online-accountsgoogle
 #  https://github.com/clearlinux/distribution/issues/599
 #  https://www.privateinternetaccess.com/helpdesk/kb/articles/using-a-vpn-proxy-in-tails
+
+#### Changing theme
+sudo apt install gnome-tweaks
+# Sets adawake-dark theme
