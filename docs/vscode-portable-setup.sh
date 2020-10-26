@@ -14,7 +14,7 @@
 #        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>
 #       COMPANY:  Etica.AI
 #       LICENSE:  Public Domain
-#       VERSION:  1.2
+#       VERSION:  1.4
 #       CREATED:  2020-10-17 10:57 UTC
 #      REVISION:  2020-10-17 10:57 UTC v1.1 re-started. The vscode-portable-setup.sh v1.0
 #                                      was deleted by mistake (around ~30min of
@@ -22,6 +22,8 @@
 #                                      feature and even VSCode warned
 #                 2020-10-23 23:13 UTC v1.2 Improved! Now we have tails-code helper
 #                                      This doc still need for initial installation
+#                 2020-10-26 19:05 UTC v1.3 Documented how to install extensions offline
+#                 2020-10-26 19:19 UTC v1.4 Documented how to persist installed extensions
 #===============================================================================
 echo "Usage:"
 echo "    cat vscode-portable-setup.sh"
@@ -73,7 +75,7 @@ tails-code
 
 #******************************************************************************#
 #                             PERSISTENT USAGE                                 #
-# Alternative to persist installer of cryptomator. Uses previous steps         #
+#                                                                              #
 #******************************************************************************#
 
 ##### B.1. Requisites __________________________________________________________
@@ -104,7 +106,6 @@ mkdir /home/amnesia/Persistent/software/portable
 # load it back to Desktop
 mv /home/amnesia/Desktop/VSCode-linux-x64 /home/amnesia/Persistent/software/portable
 
-
 #### B.4. Run VSCode ___________________________________________________________
 
 ### A.4.1 Via terminal, to open the app (its an gui) with tails-code ...........
@@ -124,3 +125,71 @@ cp -r /home/amnesia/Persistent/software/portable/VSCode-linux-x64/ /home/amnesia
 
 # To Open some specific folder, like /home/amnesia/Persistent/git/myusername/my-project
 #    /home/amnesia/Desktop/VSCode-linux-x64/code --no-sandbox /home/amnesia/Persistent/git/myusername/my-project
+
+#******************************************************************************#
+#                           INSTALL EXTENSIONS OFFLINE                         #
+# By default, Tails block VSCode from connect the internet. This show how to   #
+# Install extensions manually                                                  #
+#******************************************************************************#
+
+# Open this stack overflow question
+xdg-open https://stackoverflow.com/questions/37071388/how-can-i-install-visual-studio-code-extensions-offline
+
+# In short, if you are not using the same portable vscode on other
+# non-firewalled systems, you can just
+#  1. Go to VSCode Markedplace https://marketplace.visualstudio.com/VSCode
+#  2. Decide extensions to install.
+#      - For example, this one
+#        https://marketplace.visualstudio.com/items?itemName=huntertran.auto-markdown-toc
+#  3. Look for a button (as 2020-10-26 on right side, Resources > Download Extension)
+#     and then download the extension .vsix extension.
+#  4. Open your VSCode. At left side, click on the icon extensions (Ctrl + Shift + X)
+#  5. Click on tree dots ... and then "Install from VSIX..."
+#  6. Select your extension. The installation will be past (RAM Disk)
+
+#******************************************************************************#
+#                SAVE TO DISK CUSTOMIZATIONS ON VSCODE FROM RAM                #
+# Customizations on VSCode running from Desktop (RAM) must be rsync to disk    #
+#******************************************************************************#
+# WARNING! While you may seems intuitive to make this step run on background
+#          job (like each 5 minutes) since you are less likely to install VSCode
+#          extensions frequently, just do this on demand. This will preserve
+#          your USB stick more. Also avoid this step while doing other
+#          intensive tasks to the persistence.
+
+# RAM path: /home/amnesia/Desktop/VSCode-linux-x64
+# Disk path: /home/amnesia/Persistent/software/portable/VSCode-linux-x64
+
+#### TEST CHANGES (--dry-run) __________________________________________________
+# The rsync with --dry-run will not make real changes, but will show you
+# what it would do. Recommended do it first before the real thing, at least
+# one time!
+
+# rsync -PaSHAXv --del --dry-run /home/amnesia/Desktop/VSCode-linux-x64/ /home/amnesia/Persistent/software/portable/VSCode-linux-x64
+rsync \
+    --partial --progress \
+    --archive \
+    --sparse \
+    --hard-links \
+    --acls \
+    --xattrs \
+    --verbose \
+    --delete-during \
+    --dry-run \
+    /home/amnesia/Desktop/VSCode-linux-x64/ \
+    /home/amnesia/Persistent/software/portable/VSCode-linux-x64
+
+#### PERSIST CHANGES ____________________________________________________________
+
+# rsync -PaSHAXv --del /home/amnesia/Desktop/VSCode-linux-x64/ /home/amnesia/Persistent/software/portable/VSCode-linux-x64
+rsync \
+    --partial --progress \
+    --archive \
+    --sparse \
+    --hard-links \
+    --acls \
+    --xattrs \
+    --verbose \
+    --delete-during \
+    /home/amnesia/Desktop/VSCode-linux-x64/ \
+    /home/amnesia/Persistent/software/portable/VSCode-linux-x64

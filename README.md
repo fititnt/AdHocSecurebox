@@ -12,23 +12,6 @@ cd /home/amnesia/Persistent/git/fititnt/TailsOS-for-non-whistleblowers
 
 Look at the folder [docs/](docs/) for POSIX scripts and markdown files mean to be read.
 
-<!--
-- [docs/git-setup.sh](docs/git-setup.sh)
-- [docs/where-is-my-data-on-tails.md](docs/where-is-my-data-on-tails.md)
-- [docs/password-manangement.md](docs/password-manangement.md)
-- [docs/backup-and-recovery.md](docs/backup-and-recovery.md)
-- [docs/portable-software.sh](docs/portable-software.sh)
-- [docs/cryptomator-setup.sh](docs/cryptomator-setup.sh)
-- **VSCode**
-  - [docs/vscode-portable-setup.sh](docs/vscode-portable-setup.sh)
-  - [docs/vscode-deb-setup.sh](docs/vscode-portable-setup.sh) (not working)
-- **Terminal customization (i.e. command line, cli...)**
-  - [docs/bash-setup.sh](docs/zsh-setup.sh)
-  - [docs/zsh-setup.sh](docs/zsh-setup.sh)
-  - [docs/oh-my-zsh-setup.sh](docs/oh-my-zsh-setup.sh)
-  - [MVP of Oh My Zsh on TailsOS #5 (external link)](https://github.com/fititnt/TailsOS-for-non-whistleblowers/issues/5)
--->
-
 ## Scripts
 
 Look at the folder [bin/](bin/) for inspirational scripts to add to your
