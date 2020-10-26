@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck disable=SC2164
 #===============================================================================
 #
 #          FILE:  vscode-portable-setup.sh
@@ -49,7 +50,7 @@ VSCODE_DOWNLOAD_URL="https://go.microsoft.com/fwlink/?LinkID=620884"
 
 #### A.2. Download VSCode and move to /home/amnesia/Desktop/VSCode-linux-x64 ___
 # wget https://go.microsoft.com/fwlink/?LinkID=620884 -O /tmp/vscode.tar.gz
-wget $VSCODE_DOWNLOAD_URL -O /tmp/vscode.tar.gz
+wget "$VSCODE_DOWNLOAD_URL" -O /tmp/vscode.tar.gz
 
 # Uncompress to /home/amnesia/Desktop/VSCode-linux-x64 
 cd /home/amnesia/Desktop

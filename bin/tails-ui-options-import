@@ -31,7 +31,7 @@
 
 set -e
 
-if [ $USER = root ];
+if [ "$USER" = root ];
 then 
     # Running with sudo. We will avoid use /live/persistence/TailsData_unlocked/
     TAILS_UI_EXPORT_FILE_BY_USER="/live/persistence/TailsData_unlocked/.tails-ui-options"
