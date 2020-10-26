@@ -1,6 +1,6 @@
 # TailsOS for non whistleblowers: Where is my data on TailsOS?
 
-> _**Explain Like I'm Five**: If have "Persistence" or "persistence" on the
+> _**Explain Like I'm Five**: If have "Persistent" or "persistence" on the
 path to the folder, the files saved there will will Persist when restart the
 Tails._
 
