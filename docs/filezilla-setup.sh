@@ -111,7 +111,7 @@ sudo apt install filezilla
 #  2. write filezilla (it will filter to likely just one application)
 #  3. Press Enter
 
-##### B.3 Persist gFTP configurations __________________________________________
+##### B.3 Persist filezilla configurations _____________________________________
 
 # TODO: document how to persist this app dotfiles (or other type of internal
 #       configuration database) to be reused if is not installed on Persistence

@@ -43,6 +43,7 @@ exit 0
 
 # On this setup, we will assume you will want download from original site via
 # command line (It's the VSCODE_DOWNLOAD_URL value)
+VSCODE_DOWNLOAD_URL="https://go.microsoft.com/fwlink/?LinkID=620884"
 
 #### A.2. Download VSCode and move to /home/amnesia/Desktop/VSCode-linux-x64 ___
 # wget https://go.microsoft.com/fwlink/?LinkID=620884 -O /tmp/vscode.tar.gz

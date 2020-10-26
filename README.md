@@ -1,5 +1,5 @@
 # TailsOS-for-non-whistleblowers
-**Rocha's playground for [TailsOS](https://tails.boum.org/). Work in progress.**
+**Rocha's playground for [Tails - The Amnesic Incognito Live System](https://tails.boum.org/). Work in progress.**
 
 ```bash
 # From an already running TailsOS with persistence enabled, run:
