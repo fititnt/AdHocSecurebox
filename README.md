@@ -16,7 +16,7 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 
 <!-- TOC depthfrom:1 -->
 
-- [TailsOS-for-non-whistleblowers v2.0-rc1](#tailsos-for-non-whistleblowers-v20-rc1)
+- [TailsOS-for-non-whistleblowers v2.0](#tailsos-for-non-whistleblowers-v20)
     - [Overview](#overview)
         - [bin/: tails executable scripts](#bin-tails-executable-scripts)
         - [docs/: tails guides by topic](#docs-tails-guides-by-topic)
@@ -54,23 +54,6 @@ The folder [dotfiles/example/](dotfiles/example/) contain examples of dotfiles.
 
 Some, like the [dotfiles/example/rocha/.curlrc](dotfiles/example/rocha/.curlrc) that help with curl
 be able to proxy via Tor, may be pertinent to reduce extra parameters.
-
-<!--
-
-  ## Rocha to-do list
-In addition to [fititnt/TailsOS-for-non-whistleblowers/issues](https://github.com/fititnt/TailsOS-for-non-whistleblowers/issues):
-
-1. <s>Restart from my main OS on Tails and Commit from there</s>
-2. <s>Do commits via git, and not via GitHub web interface</s>
-3. Fix issue `Error: net::ERR_CONNECTION_REFUSED` on VSCode when trying to check for extensions
-4. <s>When 2 is solved, divide on this project in different scripts</s>
-5. Send e-mail with Tunderbird
-6. Send e-mail with Tunderbird, but now encrypted
-7. Persistence: keep changes on Wallpaper (yes, TailsOS by default clean everyting)
-8. <s>Persistence: remember (or re-insert on demand) `config --global user.name/user.email`</s>
-9. Discover how to customize Keyboard layout to Brazilian ABNT (the one with `ç`)
-
--->
 
 ## Installation
 

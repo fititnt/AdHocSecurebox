@@ -34,8 +34,8 @@ master/slave terminology](https://en.wikipedia.org/wiki/Master/slave_(technology
 
 #### Backup
 
-- Script: [bin/backup-tailsdata-to-usb-stick.sh](../bin/backup-tailsdata-to-usb-stick.sh)
+- Script: [bin/tails-backup-tailsdata-to-usb-stick](../bin/tails-backup-tailsdata-to-usb-stick)
 
 #### Restore
 
-- Script: [bin/restore-tailsdata-from-usb-stick.sh](../bin/restore-tailsdata-from-usb-stick.sh)
+- Script: [bin/tails-backup-tailsdata-to-usb-stick](../bin/tails-backup-tailsdata-to-usb-stick)
