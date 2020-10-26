@@ -1,4 +1,4 @@
-# TailsOS-for-non-whistleblowers v2.0-rc1
+# TailsOS-for-non-whistleblowers v2.0
 **Rocha's playground for [Tails - The Amnesic Incognito Live System](https://tails.boum.org/). Work in progress.**
 
 How to do it?
@@ -20,7 +20,7 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
     - [Overview](#overview)
         - [bin/: tails executable scripts](#bin-tails-executable-scripts)
         - [docs/: tails guides by topic](#docs-tails-guides-by-topic)
-        - [dotfiles/example/](#dotfilesexample)
+        - [wwdotfiles/example/](#wwdotfilesexample)
     - [Installation](#installation)
         - [Simple](#simple)
         - [Via git](#via-git)
@@ -36,18 +36,19 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 
 ## Overview
 
-### `bin/`: tails executable scripts
+### [`bin/`: tails executable scripts](bin/)
 
 Look at the folder [bin/](bin/) for inspirational scripts to add to your
 `/home/amnesia/bin`<sup>Amnesic</sup> /
 `/live/persistence/TailsData_unlocked/dotfiles/bin`<sup>Persistent</sup>.
 
-### `docs/`: tails guides by topic
+### [`docs/`: tails guides by topic](docs/)
 
 Look at the folder [docs/](docs/) for POSIX scripts and markdown files mean to be read.
 
+### [wwdotfiles/example/](dotfiles/example/)
 
-### `dotfiles/example/`
+- [dotfiles/example/](dotfiles/example/)
 
 The folder [dotfiles/example/](dotfiles/example/) contain examples of dotfiles.
 

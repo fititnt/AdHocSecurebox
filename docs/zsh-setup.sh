@@ -12,7 +12,9 @@
 #       OPTIONS:  ---
 #  REQUIREMENTS:  ---
 #          BUGS:  ---
-#         NOTES:  ---
+#         NOTES:  1. zsh-setup.sh was not tested beyond
+#                    the initial usage. So this may have some dumb bugs
+#                    (fititnt, 2020-10-26 21:30 UTC)
 #        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>
 #       COMPANY:  Etica.AI
 #       LICENSE:  Public Domain

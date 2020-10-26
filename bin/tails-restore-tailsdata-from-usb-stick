@@ -1,20 +1,20 @@
 #!/bin/sh
 #===============================================================================
 #
-#          FILE:  restore-tailsdata-from-usb-stick.sh
+#          FILE:  tails-restore-tailsdata-from-usb-stick
 #
 #         USAGE:  If this script already was added on the path (e.g. ~/bin), run:
-#                     restore-tailsdata-from-usb-stick.sh
+#                     tails-restore-tailsdata-from-usb-stick
 #                 Note: this script will ask for sudo powers on some parts, but
 #                 do not execute with sudo script.sh. This is intentional.
 #
-#   DESCRIPTION:  restore-tailsdata-from-usb-stick.sh Restore (rescue) Tails Data
+#   DESCRIPTION:  tails-restore-tailsdata-from-usb-stick Restore (rescue) Tails Data
 #                 with rsync strategy from an external USB stick already opened at
 #                 the path
 #                     /media/amnesia/TailsData/
 #                 To the current he current running tails, e.g. the path
 #                     /live/persistence/TailsData_unlocked/
-#                 Both backup-tailsdata-to-usb-stick.sh and restore-tailsdata-from-usb-stick.sh
+#                 Both tails-backup-tailsdata-to-usb-stick. and tails-restore-tailsdata-from-usb-stick
 #                 consider the concept that only one USB stick are considered
 #                 the primary/source of data, and the backup is an replica.
 #                 This is controlled with the empty file '.tailsdata-is-source'
@@ -29,18 +29,20 @@
 #        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>
 #       COMPANY:  Etica.AI
 #       LICENSE:  Public Domain
-#       VERSION:  1.0
+#       VERSION:  1.1
 #       CREATED:  2020-10-20 22:35 UTC
-#      REVISION:  ---
+#      REVISION:  2020-10-26 21:52 UTC v1.1 renamed to tails-restore-tailsdata-from-usb-stick.
+#                                      Was restore-tailsdata-from-usb-stick.sh.
+#                                      No functionality changes.
 #===============================================================================
 PROGRAM_START_DATETIME=$(date +%s)
 PROGRAM_NAME=$(basename "$0")
 set -e
 
-# TODO: the restore-tailsdata-from-usb-stick.sh shoud be tested at least once (fititnt, 2020-10-21 21:36 UTC) 
+# TODO: the portable-data.sh shoud be tested at least once (fititnt, 2020-10-21 21:36 UTC) 
 
 #### [ALTERNATIVE] One-liner script ____________________________________________
-# The restore-tailsdata-from-usb-stick.sh was based on the documentation at 
+# The portable-data.sh was based on the documentation at 
 # https://tails.boum.org/doc/first_steps/persistence/rescue/index.en.html.
 # If you really sure, you can execute this line:
 #     rsync -PaSHAXv --del /media/amnesia/TailsData/ /live/persistence/TailsData_unlocked
@@ -48,7 +50,7 @@ set -e
 # What this script do is, since is already shipped with this project, do some
 # safety checks (like require that the current file does not exist)
 #     /live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source
-# This file was created by backup-tailsdata-to-usb-stick.sh when doing a push
+# This file was created by tails-backup-tailsdata-to-usb-stick. when doing a push
 # backup to an external drive and we assume that if this exist on current system
 # you may be using this script wrong.
 
@@ -58,7 +60,7 @@ set -e
 # Only one USB stick can have the file .tailsdata-is-source (used to know
 # if an storage was marked as source of data and implicitly assume the other
 # are replicas; no .tailsdata-is-replica is created)
-# Note that restore-tailsdata-from-usb-stick.sh
+# Note that portable-data.sh
 
 ### /media/amnesia/TailsData/ is availible? ....................................
 if [ ! -d "/media/amnesia/TailsData/" ];
@@ -76,7 +78,7 @@ if [ -f "/live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source" ]
 then
     echo "ERROR: the folowing file exist on this Tails installation:"
     echo "           /live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source "
-    echo "       This file either was created by backup-tailsdata-to-usb-stick.sh or equivalent"
+    echo "       This file either was created by tails-backup-tailsdata-to-usb-stick. or equivalent"
     echo "       and it means that the local TailsData_unlocked was considered an"
     echo "       primary/source of data and should be protected from accidental recover"
     echo ""

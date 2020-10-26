@@ -1,19 +1,19 @@
 #!/bin/sh
 #===============================================================================
 #
-#          FILE:  backup-tailsdata-to-usb-stick.sh
+#          FILE:  tails-backup-tailsdata-to-usb-stick
 #
 #         USAGE:  If this script already was added on the path (e.g. ~/bin), run:
-#                     backup-tailsdata-to-usb-stick.sh
+#                     tails-backup-tailsdata-to-usb-stick
 #                 Note: this script will ask for sudo powers on some parts, but
 #                 do not execute with sudo script.sh. This is intentional.
 #
-#   DESCRIPTION:  backup-tailsdata-to-usb-stick.sh backup Tails Data with rsync
+#   DESCRIPTION:  tails-backup-tailsdata-to-usb-stick backup Tails Data with rsync
 #                 strategy from the current running tails, e.g. the path
 #                     /live/persistence/TailsData_unlocked/
 #                 to an external USB stick already opened at the path
 #                     /media/amnesia/TailsData/
-#                 Both backup-tailsdata-to-usb-stick.sh and restore-tailsdata-from-usb-stick.sh
+#                 Both tails-backup-tailsdata-to-usb-stick and tails-restore-tailsdata-from-usb-stick
 #                 consider the concept that only one USB stick are considered
 #                 the primary/source of data, and the backup is an replica.
 #                 This is controlled with the empty file '.tailsdata-is-source'
@@ -28,16 +28,18 @@
 #        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>
 #       COMPANY:  Etica.AI
 #       LICENSE:  Public Domain
-#       VERSION:  1.0
+#       VERSION:  1.1
 #       CREATED:  2020-10-20 22:35 UTC
-#      REVISION:  ---
+#      REVISION:  2020-10-26 21:49 UTC v1.1 renamed to tails-backup-tailsdata-to-usb-stick.
+#                                      Was backup-tailsdata-to-usb-stick.sh.
+#                                      No functionality changes.
 #===============================================================================
 PROGRAM_START_DATETIME=$(date +%s)
 PROGRAM_NAME=$(basename "$0")
 set -e
 
 #### [ALTERNATIVE] One-liner script ____________________________________________
-# The restore-tailsdata-from-usb-stick.sh was based on the documentation at 
+# The tails-restore-tailsdata-from-usb-stick was based on the documentation at 
 # https://tails.boum.org/doc/first_steps/persistence/backup/index.en.html.
 # If you really sure, you can execute this line:
 #     rsync -PaSHAXv --del /live/persistence/TailsData_unlocked/ /media/amnesia/TailsData
@@ -84,7 +86,7 @@ if [ ! -f "/live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source"
 then
     echo "INFO: /live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source does not exist yet"
     echo "      Creating now. This will protect this USB stick from accidental restore."
-    echo "      (compatible with restore-tailsdata-from-usb-stick.sh)"
+    echo "      (compatible with tails-restore-tailsdata-from-usb-stick)"
     touch /live/persistence/TailsData_unlocked/Persistent/.tailsdata-is-source
 fi
 
