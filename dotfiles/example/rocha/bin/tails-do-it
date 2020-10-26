@@ -9,7 +9,7 @@
 #                 tails-do-it /media/amnesia/TailsData/Persistent/bin
 #                      This example uses bin from another TailsData_unlocked (USB Stick)
 #
-#   DESCRIPTION:  ---
+#   DESCRIPTION:  "tails-do-it"
 #
 #  INSTALLATION:  1. Have Tails Persistence/Dotfiles enabled
 #                 2. Copy this file to /live/persistence/TailsData_unlocked/dotfiles/bin/tails-do-it
@@ -22,26 +22,43 @@
 #        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>
 #       COMPANY:  Etica.AI
 #       LICENSE:  Public Domain
-#       VERSION:  1.1
+#       VERSION:  1.2
 #       CREATED:  2020-10-25 13:13 BRT v1.0 It works. Hardcoded paths
 #      REVISION:  2020-10-25 19:36 UTC v1.1 Uses /home/amnesia/Persistent/bin as default
+#                 2020-10-26 16:36 UTC v1.2 [Optional] first parameter will be used to symlink to ~/bin
 #===============================================================================
+#______________________________________________________________________________#
+# Manual setup alternatives ____________________________________________________
+#    mv /home/amnesia/bin /home/amnesia/bin.old
+# Use ~/Persistent/bin .........................................................
+#    ln -s /live/persistence/TailsData_unlocked/Persistent/bin /home/amnesia/bin
+#______________________________________________________________________________#
 
 TIMESTAMP=$(date "+%Y-%m-%dT%T")
+CLI_FIRST_OPTION="$1"
+DEFAULT_BIN_PATH="${CLI_FIRST_OPTION:-/home/amnesia/Persistent/bin}"
+OLD_BIN_PATH="$(readlink -f /home/amnesia/bin)"
+REAL_BIN_PATH="$(realpath $DEFAULT_BIN_PATH)"
 
-# TODO: implement custom path as primary parameter (fititnt, 2020-10-25 29:43 UTC)
-
-DEFAULT_BIN_PATH="/home/amnesia/Persistent/bin"
-
-if [ -e "$HOME/bin" ];
+if [ ! -e "$HOME/bin" ];
 then
-    echo "tails-do-it: $HOME/bin exists. Backup at $HOME/bin.$TIMESTAMP~"
-    mv "$HOME/bin" "$HOME/bin.$TIMESTAMP~"
-else
+    # TODO: make a quick check if the path is added to the path; if not, then add for this terminal (fititnt, 2020-10-26 17:04 UTC)
     echo "tails-do-it: WARNING! $HOME/bin already do not exist. You may need to add $HOME/bin to PATH"
-    # echo 'PATH="/home/amnesia/Persistent/bin:$PATH"'
+    echo "tails-do-it: tails-do-it v1.2 still not do it for you."
 fi
 
-set -e
-ln -s "$DEFAULT_BIN_PATH" "$HOME/bin"
-set +e
+if [ -e "$HOME/bin" ] && [ "$OLD_BIN_PATH" = "$REAL_BIN_PATH" ] ;
+then
+    echo "tails-do-it: Ok. ~/bin already symlinked to $REAL_BIN_PATH"
+else
+    if [ -e "$HOME/bin" ];
+    then
+        # echo ls "$HOME/bin"
+        echo "tails-do-it: $HOME/bin exists. Backup at $HOME/bin.$TIMESTAMP~"
+        mv "$HOME/bin" "$HOME/bin.$TIMESTAMP~"
+    fi
+
+    set -x
+    ln -s "$REAL_BIN_PATH" "$HOME/bin"
+    set +x
+fi
