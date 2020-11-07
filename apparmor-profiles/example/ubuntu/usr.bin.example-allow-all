@@ -1,0 +1,18 @@
+# WARNING: while this may be useful to start with apparmor, this is not
+# the recommended approach
+
+# Example from https://security.stackexchange.com/questions/200493/apparmor-how-to-allow-everything-rule-then-tighten-up
+profile DAC /path/to/exec {
+  # Allow all rules
+  capability,
+  network,
+  mount,
+  remount,
+  umount,
+  pivot_root,
+  ptrace,
+  signal,
+  dbus,
+  unix,
+  file,
+}

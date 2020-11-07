@@ -1,0 +1,21 @@
+# Last Modified: Sat Nov  7 01:13:28 2020
+#include <tunables/global>
+
+/workspace/bin/cryptomator.AppImage flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  capability dac_read_search,
+  capability sys_admin,
+
+  /dev/fuse rw,
+  /etc/fuse.conf r,
+  /proc/*/mounts r,
+  /tmp/.mount_cryptoMkNRmM/ r,
+  /tmp/.mount_cryptoMkNRmM/bin/Cryptomator Ux,
+  /tmp/.mount_cryptoo4xRVN/ r,
+  /tmp/.mount_cryptoo4xRVN/bin/Cryptomator Px,
+  /usr/bin/fusermount mrix,
+  /workspace/bin/cryptomator.AppImage mr,
+
+}
