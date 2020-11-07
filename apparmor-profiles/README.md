@@ -15,7 +15,7 @@ has been supported by Canonical since 2009."
 >
 > Source: <https://apparmor.net/>
 
-## About this folder
+This folder contain examples of AppArmor profiles.
 
 ## See also
 

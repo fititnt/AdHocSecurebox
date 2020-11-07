@@ -16,7 +16,7 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 
 <!-- TOC depthfrom:1 -->
 
-- [TailsOS-for-non-whistleblowers v2.0](#tailsos-for-non-whistleblowers-v20)
+- [TailsOS-for-non-whistleblowers v3.0](#tailsos-for-non-whistleblowers-v20)
     - [Overview](#overview)
         - [bin/: tails executable scripts](#bin-tails-executable-scripts)
         - [docs/: tails guides by topic](#docs-tails-guides-by-topic)
@@ -92,6 +92,11 @@ cd /home/amnesia/Persistent/git/fititnt/TailsOS-for-non-whistleblowers
 - Tails Reddit: <https://www.reddit.com/r/tails/>
 - @ChristopherA Tails Dotfiles: <https://github.com/ChristopherA/bash-dotfiles-for-tails>
 
+# Usage on other Linux distributions
+
+## AppArmor profiles
+
+See [apparmor-profiles/](apparmor-profiles/).
 
 # Reuse of this work
 
