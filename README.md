@@ -10,23 +10,29 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 /home/amnesia/bin/tails-do-it
 ```
 
+See also [Beyond Tails](#beyond-tails).
+
 ---
 
 **Table of Contents**
 
-<!-- TOC depthfrom:1 -->
+<!-- TOC -->
 
-- [TailsOS-for-non-whistleblowers v3.0](#tailsos-for-non-whistleblowers-v20)
+- [TailsOS-for-non-whistleblowers v3.0](#tailsos-for-non-whistleblowers-v30)
     - [Overview](#overview)
-        - [bin/: tails executable scripts](#bin-tails-executable-scripts)
-        - [docs/: tails guides by topic](#docs-tails-guides-by-topic)
-        - [wwdotfiles/example/](#wwdotfilesexample)
+        - [`bin/`: tails executable scripts](#bin-tails-executable-scripts)
+        - [`docs/`: tails guides by topic](#docs-tails-guides-by-topic)
+        - [`dotfiles/example/`](#dotfilesexample)
     - [Installation](#installation)
         - [Simple](#simple)
         - [Via git](#via-git)
     - [Acknowledgements](#acknowledgements)
         - [Official references](#official-references)
         - [Community references](#community-references)
+- [Beyond Tails](#beyond-tails)
+    - [AppArmor profiles](#apparmor-profiles)
+    - [Optionated workspace](#optionated-workspace)
+    - [YubiKey](#yubikey)
 - [Reuse of this work](#reuse-of-this-work)
     - [License](#license)
 
@@ -36,17 +42,17 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 
 ## Overview
 
-### [`bin/`: tails executable scripts](bin/)
+### `bin/`: tails executable scripts
 
 Look at the folder [bin/](bin/) for inspirational scripts to add to your
 `/home/amnesia/bin`<sup>Amnesic</sup> /
 `/live/persistence/TailsData_unlocked/dotfiles/bin`<sup>Persistent</sup>.
 
-### [`docs/`: tails guides by topic](docs/)
+### `docs/`: tails guides by topic
 
 Look at the folder [docs/](docs/) for POSIX scripts and markdown files mean to be read.
 
-### [wwdotfiles/example/](dotfiles/example/)
+### `dotfiles/example/`
 
 - [dotfiles/example/](dotfiles/example/)
 
@@ -92,11 +98,24 @@ cd /home/amnesia/Persistent/git/fititnt/TailsOS-for-non-whistleblowers
 - Tails Reddit: <https://www.reddit.com/r/tails/>
 - @ChristopherA Tails Dotfiles: <https://github.com/ChristopherA/bash-dotfiles-for-tails>
 
-# Usage on other Linux distributions
+# Beyond Tails
+> Note: most of the concepts used on the _Beyond Tails_ are tested on
+Ubuntu (more specifically Ubuntu 20.04) but documentation can be reused
+as reference for other Linux distributions. The initial author also
+took care to make the public domain individual scripts a as portable
+as possible <3.
 
 ## AppArmor profiles
 
 See [apparmor-profiles/](apparmor-profiles/).
+
+## Optionated workspace
+
+See [docs/ubuntu/workspace/](docs/ubuntu/workspace/)
+
+## YubiKey
+
+This is an draft. See [YubiKey on Tails #28](https://github.com/fititnt/TailsOS-for-non-whistleblowers/issues/28).
 
 # Reuse of this work
 
