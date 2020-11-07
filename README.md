@@ -20,8 +20,8 @@ See also [Beyond Tails](#beyond-tails).
 
 - [TailsOS-for-non-whistleblowers v3.0](#tailsos-for-non-whistleblowers-v30)
     - [Overview](#overview)
-        - [`bin/`: tails executable scripts](#bin-tails-executable-scripts)
-        - [`docs/`: tails guides by topic](#docs-tails-guides-by-topic)
+        - [`bin/`: Tails executable scripts](#bin-tails-executable-scripts)
+        - [`docs/`: Tails guides by topic](#docs-tails-guides-by-topic)
         - [`dotfiles/example/`](#dotfilesexample)
     - [Installation](#installation)
         - [Simple](#simple)
@@ -42,13 +42,13 @@ See also [Beyond Tails](#beyond-tails).
 
 ## Overview
 
-### `bin/`: tails executable scripts
+### `bin/`: Tails executable scripts
 
 Look at the folder [bin/](bin/) for inspirational scripts to add to your
 `/home/amnesia/bin`<sup>Amnesic</sup> /
 `/live/persistence/TailsData_unlocked/dotfiles/bin`<sup>Persistent</sup>.
 
-### `docs/`: tails guides by topic
+### `docs/`: Tails guides by topic
 
 Look at the folder [docs/](docs/) for POSIX scripts and markdown files mean to be read.
 
@@ -105,13 +105,17 @@ as reference for other Linux distributions. The initial author also
 took care to make the public domain individual scripts a as portable
 as possible <3.
 
+See [docs/beyond-tails/](docs/beyond-tails/).
+
 ## AppArmor profiles
 
 See [apparmor-profiles/](apparmor-profiles/).
 
+> Note: RHEL/Fedora/CentOS uses SELinux instead of AppArmor.
+
 ## Optionated workspace
 
-See [docs/ubuntu/workspace/](docs/ubuntu/workspace/)
+See [docs/beyond-tails/workspace/](docs/beyond-tails/workspace/).
 
 ## YubiKey
 
