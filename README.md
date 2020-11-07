@@ -1,4 +1,4 @@
-# TailsOS-for-non-whistleblowers v2.0
+# TailsOS-for-non-whistleblowers v3.0
 **Rocha's playground for [Tails - The Amnesic Incognito Live System](https://tails.boum.org/). Work in progress.**
 
 How to do it?
