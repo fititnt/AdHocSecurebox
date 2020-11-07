@@ -1,0 +1,36 @@
+# /usr/bin/zuluCrypt-cli
+# /usr/bin/zuluCrypt-gui
+# /usr/bin/zuluMount-cli
+# /usr/bin/zuluMount-gui
+# /usr/bin/zuluPolkit
+# /usr/bin/zuluSafe-cli
+# sudo journalctl -f
+# https://help.ubuntu.com/community/AppArmor
+# sudo service apparmor reload
+# sudo systemctl status apparmor.service
+# sudo systemctl reload apparmor.service
+
+include <tunables/global>
+
+# path to executable, can be a profile name,
+# but more on that later
+
+profile zuluCrypt-cli /usr/bin/zuluCrypt-cli {
+  include <abstractions/base>
+  # /etc/ld.so.cache r,
+  /usr/lib/x86_64-linux-gnu/libzuluCrypt-exe.so.1.2.0 r,
+}
+profile zuluCrypt-gui /usr/bin/zuluCrypt-gui {
+  include <abstractions/base>
+  # /etc/ld.so.cache r,
+  /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5 rm,
+}
+profile zuluMount-gui /usr/bin/zuluMount-gui {
+  # nothing to see here. this is a static binary
+}
+profile zuluPolkit /usr/bin/zuluPolkit {
+  # nothing to see here. this is a static binary
+}
+profile zuluSafe-cli /usr/bin/zuluSafe-cli  {
+  # nothing to see here. this is a static binary
+}
