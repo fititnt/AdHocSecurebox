@@ -1,7 +1,7 @@
 # TailsOS-for-non-whistleblowers v3.0
-**Rocha's playground for [Tails - The Amnesic Incognito Live System](https://tails.boum.org/). Work in progress.**
+**AdHocSecurebox (formerly _TailsOS-for-non-whistleblowers_) is an opinionated collection of scripts/docs to deal with sensitive data with average hardware and open source software. Does not aim to be perfect: just to be _less wrong_. See [Tails](#tails) and [Beyond Tails](#beyond-tails).**
 
-How to do it?
+How to do it on an Tails live USB right now?
 
 ```bash
 git clone https://github.com/fititnt/TailsOS-for-non-whistleblowers.git /tmp/bootstrap-tails
@@ -10,7 +10,9 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 /home/amnesia/bin/tails-do-it
 ```
 
-See also [Beyond Tails](#beyond-tails).
+> [[issue#34](https://github.com/fititnt/TailsOS-for-non-whistleblowers/issues/34)] The initial target audience of this project
+>
+> TODO: add description of the initial reasons for this project. But definitely mention about Domestic Violence survivors (fititnt, 2020-11-07 21:11 BRT) 
 
 ---
 
