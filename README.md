@@ -16,43 +16,45 @@ See also [Beyond Tails](#beyond-tails).
 
 **Table of Contents**
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 orderedList:true -->
 
-- [TailsOS-for-non-whistleblowers v3.0](#tailsos-for-non-whistleblowers-v30)
-    - [Overview](#overview)
-        - [`bin/`: Tails executable scripts](#bin-tails-executable-scripts)
-        - [`docs/`: Tails guides by topic](#docs-tails-guides-by-topic)
-        - [`dotfiles/example/`](#dotfilesexample)
-    - [Installation](#installation)
-        - [Simple](#simple)
-        - [Via git](#via-git)
-    - [Acknowledgements](#acknowledgements)
-        - [Official references](#official-references)
-        - [Community references](#community-references)
-- [Beyond Tails](#beyond-tails)
-    - [AppArmor profiles](#apparmor-profiles)
-    - [Optionated workspace](#optionated-workspace)
-    - [YubiKey](#yubikey)
-- [Reuse of this work](#reuse-of-this-work)
-    - [License](#license)
+1. [Tails](#tails)
+    1. [Overview](#overview)
+        1. [`bin/`: Tails executable scripts](#bin-tails-executable-scripts)
+        2. [`docs/`: Tails guides by topic](#docs-tails-guides-by-topic)
+        3. [`dotfiles/example/`](#dotfilesexample)
+    2. [Installation](#installation)
+        1. [Simple](#simple)
+        2. [Via git](#via-git)
+    3. [Acknowledgements](#acknowledgements)
+        1. [Official references](#official-references)
+        2. [Community references](#community-references)
+2. [Beyond Tails](#beyond-tails)
+    1. [AppArmor profiles](#apparmor-profiles)
+    2. [Optionated workspace](#optionated-workspace)
+    3. [YubiKey](#yubikey)
+3. [Reuse of this work](#reuse-of-this-work)
+    1. [License](#license)
 
 <!-- /TOC -->
 
 ---
 
-## Overview
+## Tails
 
-### `bin/`: Tails executable scripts
+### Overview
+
+#### `bin/`: Tails executable scripts
 
 Look at the folder [bin/](bin/) for inspirational scripts to add to your
 `/home/amnesia/bin`<sup>Amnesic</sup> /
 `/live/persistence/TailsData_unlocked/dotfiles/bin`<sup>Persistent</sup>.
 
-### `docs/`: Tails guides by topic
+#### `docs/`: Tails guides by topic
 
 Look at the folder [docs/](docs/) for POSIX scripts and markdown files mean to be read.
 
-### `dotfiles/example/`
+#### `dotfiles/example/`
 
 - [dotfiles/example/](dotfiles/example/)
 
@@ -61,9 +63,9 @@ The folder [dotfiles/example/](dotfiles/example/) contain examples of dotfiles.
 Some, like the [dotfiles/example/rocha/.curlrc](dotfiles/example/rocha/.curlrc) that help with curl
 be able to proxy via Tor, may be pertinent to reduce extra parameters.
 
-## Installation
+### Installation
 
-### Simple
+#### Simple
 
 ```bash
 git clone https://github.com/fititnt/TailsOS-for-non-whistleblowers.git /tmp/bootstrap-tails
@@ -72,7 +74,7 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 /home/amnesia/bin/tails-do-it
 ```
 
-### Via git
+#### Via git
 
 Adapt this to your needs. This is how the author would do after already
 have his /home/amnesia/.ssh/id_rsa autorized to connect GitHub.
@@ -84,21 +86,21 @@ git clone https://github.com/fititnt/TailsOS-for-non-whistleblowers.git
 cd /home/amnesia/Persistent/git/fititnt/TailsOS-for-non-whistleblowers
 ```
 
-## Acknowledgements
+### Acknowledgements
 
-### Official references
+#### Official references
 
 - Tails Official documentation: <https://tails.boum.org/doc/>
   - This is less wrong than this repository.
 
-### Community references
+#### Community references
 
 > If you know other references for scripts, send a PR or an e-mail.
 
 - Tails Reddit: <https://www.reddit.com/r/tails/>
 - @ChristopherA Tails Dotfiles: <https://github.com/ChristopherA/bash-dotfiles-for-tails>
 
-# Beyond Tails
+## Beyond Tails
 > Note: most of the concepts used on the _Beyond Tails_ are tested on
 Ubuntu (more specifically Ubuntu 20.04) but documentation can be reused
 as reference for other Linux distributions. The initial author also
@@ -107,26 +109,26 @@ as possible <3.
 
 See [docs/beyond-tails/](docs/beyond-tails/).
 
-## AppArmor profiles
+### AppArmor profiles
 
 See [apparmor-profiles/](apparmor-profiles/).
 
 > Note: RHEL/Fedora/CentOS uses SELinux instead of AppArmor.
 
-## Optionated workspace
+### Optionated workspace
 
 See [docs/beyond-tails/workspace/](docs/beyond-tails/workspace/).
 
-## YubiKey
+### YubiKey
 
 This is an draft. See [YubiKey on Tails #28](https://github.com/fititnt/TailsOS-for-non-whistleblowers/issues/28).
 
-# Reuse of this work
+## Reuse of this work
 
 > TODO: write something more explicitly about allow reuse of this work, even
   without credit. (fititnt, 2020-10-26 20:36 UTC)
 
-## License
+### License
 
 [![Public Domain](https://i.creativecommons.org/p/zero/1.0/88x31.png)](UNLICENSE)
 
