@@ -1,4 +1,4 @@
-# TailsOS-for-non-whistleblowers/apparmor-profiles
+# AdHocSecurebox/apparmor-profiles
 
 This folder contain examples of AppArmor profiles.
 

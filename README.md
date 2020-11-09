@@ -10,7 +10,7 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 /home/amnesia/bin/tails-do-it
 ```
 
-> [[issue#34](https://github.com/fititnt/TailsOS-for-non-whistleblowers/issues/34)] The initial target audience of this project
+> [[issue#34](https://github.com/fititnt/AdHocSecurebox/issues/34)] The initial target audience of this project
 >
 > TODO: add description of the initial reasons for this project. But definitely mention about Domestic Violence survivors (fititnt, 2020-11-07 21:11 BRT) 
 
@@ -24,8 +24,9 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 2. [Tails](#tails)
     1. [Overview](#overview)
         1. [`bin/`: Tails executable scripts](#bin-tails-executable-scripts)
-        2. [`docs/`: Tails guides by topic](#docs-tails-guides-by-topic)
-        3. [`dotfiles/example/`](#dotfilesexample)
+        2. [`directory-structure/`: Example of directory structure](#directory-structure-example-of-directory-structure)
+        3. [`docs/`: Tails guides by topic](#docs-tails-guides-by-topic)
+        4. [`dotfiles/example/`](#dotfilesexample)
     2. [Installation](#installation)
         1. [Simple](#simple)
         2. [Via git](#via-git)
@@ -82,6 +83,16 @@ Look at the folder [bin/](bin/) for inspirational scripts to add to your
 `/home/amnesia/bin`<sup>Amnesic</sup> /
 `/live/persistence/TailsData_unlocked/dotfiles/bin`<sup>Persistent</sup>.
 
+#### `directory-structure/`: Example of directory structure
+
+- [directory-structure/](directory-structure/)
+
+If you don't plan to read the documentation at [docs/](docs/) and is just browsing
+this repository, this is the folder you look around to see potential examples.
+
+These folders are not used for copy or automation (like [bin/](bin/) is). This is
+just an documental syntactic sugar.
+
 #### `docs/`: Tails guides by topic
 
 Look at the folder [docs/](docs/) for POSIX scripts and markdown files mean to be read.
@@ -92,15 +103,16 @@ Look at the folder [docs/](docs/) for POSIX scripts and markdown files mean to b
 
 The folder [dotfiles/example/](dotfiles/example/) contain examples of dotfiles.
 
-Some, like the [dotfiles/example/rocha/.curlrc](dotfiles/example/rocha/.curlrc) that help with curl
-be able to proxy via Tor, may be pertinent to reduce extra parameters.
+Some, like the [dotfiles/example/rocha/.curlrc](dotfiles/example/rocha/.curlrc)
+that help with curl be able to proxy via Tor, may be pertinent to reduce extra
+parameters.
 
 ### Installation
 
 #### Simple
 
 ```bash
-git clone https://github.com/fititnt/TailsOS-for-non-whistleblowers.git /tmp/bootstrap-tails
+git clone https://github.com/fititnt/AdHocSecurebox.git /tmp/bootstrap-tails
 # mv /home/amnesia/bin /home/amnesia/bin.bkp
 cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 /home/amnesia/bin/tails-do-it
@@ -114,8 +126,8 @@ have his /home/amnesia/.ssh/id_rsa autorized to connect GitHub.
 ```bash
 # From an already running TailsOS with persistence enabled, run:
 mkdir /home/amnesia/Persistent/git ; mkdir /home/amnesia/Persistent/git/fititnt/ ; cd /home/amnesia/Persistent/git/fititnt
-git clone https://github.com/fititnt/TailsOS-for-non-whistleblowers.git
-cd /home/amnesia/Persistent/git/fititnt/TailsOS-for-non-whistleblowers
+git clone https://github.com/fititnt/AdHocSecurebox.git
+cd /home/amnesia/Persistent/git/fititnt/AdHocSecurebox
 ```
 
 ### Acknowledgements
@@ -153,7 +165,7 @@ See [docs/beyond-tails/workspace/](docs/beyond-tails/workspace/).
 
 ### YubiKey
 
-This is an draft. See [YubiKey on Tails #28](https://github.com/fititnt/TailsOS-for-non-whistleblowers/issues/28).
+This is an draft. See [YubiKey on Tails #28](https://github.com/fititnt/AdHocSecurebox/issues/28).
 
 ## Reuse of this work
 

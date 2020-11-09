@@ -14,14 +14,21 @@
 #        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>
 #       COMPANY:  Etica.AI
 #       LICENSE:  Public Domain
-#       VERSION:  0.1 (draft)
+#       VERSION:  0.2 (draft)
 #       CREATED:  2020-10-25 23:28 UTC v0.1 (draft)
+#                 2020-11-08 23:14 UTC v0.2 Added draft of example directories
+#                                      as empty folders on the git repository at
+#                                      directory-structure/
 #===============================================================================
 echo "Usage:"
 echo "    cat portable-software.sh"
 echo "    cat portable-data.sh"
 echo "exiting..."
 exit 0
+
+## TODO: move the description of "portable data" to (maybe) simply create example
+#        directories on AdHocSecurebox/directory-structure with descritive
+#        comments (2020-11-08 23:14)
 
 ##### 1. Requisites ____________________________________________________________
 #### 1.1 Read Tails official documentation about setup persistence .............
