@@ -1,4 +1,4 @@
-# TailsOS-for-non-whistleblowers/docs/beyond-tails
+# AdHocSecurebox/docs/beyond-tails
 > Note: most of the concepts used on the _Beyond Tails_ are tested on
 Ubuntu (more specifically Ubuntu 20.04) but documentation can be reused
 as reference for other Linux distributions. The initial author also
@@ -9,7 +9,7 @@ as possible <3.
 
 <!-- TOC -->
 
-- [TailsOS-for-non-whistleblowers/docs/beyond-tails](#tailsos-for-non-whistleblowersdocsbeyond-tails)
+- [AdHocSecurebox/docs/beyond-tails](#adhocsecureboxdocsbeyond-tails)
     - [AppArmor](#apparmor)
     - [Getting AppArmor / Distributions and Ports / Distributions that include AppArmor:](#getting-apparmor--distributions-and-ports--distributions-that-include-apparmor)
 

@@ -21,6 +21,8 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 <!-- TOC depthFrom:2 orderedList:true -->
 
 1. [Why?](#why)
+    1. [Tails is a great start even for non-target audiences](#tails-is-a-great-start-even-for-non-target-audiences)
+    2. [TL;DR: of AdHocSecurebox](#tldr-of-adhocsecurebox)
 2. [Tails](#tails)
     1. [Overview](#overview)
         1. [`bin/`: Tails executable scripts](#bin-tails-executable-scripts)
@@ -46,10 +48,24 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 
 ## Why?
 
+### Tails is a great start even for non-target audiences
+
 [Tails](https://tails.boum.org/), without any extra, already is a great start
 for an _ad hoc secure box_ (and is much simpler to get it working than
 [Qubes OS](https://www.qubes-os.org/) / [Whonix](https://www.whonix.org/)).
-But by design Tails is not an average OS for daily usage.
+But by design Tails ("The **Amnesic** Incognito Live System") is not an average
+OS for daily usage in special for who is not the target audience.
+
+<!--
+
+AdHocSecurebox does not try to "fix" Tails (because most fixes would make
+it less secure for target audience), but, when makes sense, document
+how to use Tails for specific tasks and how to make it portable to "Beyond
+Tails".
+
+-->
+
+### TL;DR: of AdHocSecurebox
 
 This GitHub project have tested scripts to use on Tails (with special care
 about how to backup/restore) when you have to deal with, for example:
@@ -58,26 +74,42 @@ about how to backup/restore) when you have to deal with, for example:
   use an OS as fallback mechanism to log on your servers when your main
   computer has issues (or you are on-the-go and your company/government
   would not allow you use any friends hardware). Etc.
-- **Beyond Tails**: even if you already have full-disk encryption
-  we document potential tips for how to deal with you daily Desktop
+- **Beyond Tails**: even if you already have full-disk encryption we
+  document potential tips for how to deal with you daily Desktop
   workstation to not leave all the time either encryption/authentication
-  keys accessible or the data itself open for any random software
-  (think your Zoom, Skype, Spotify, etc) that could scan your disks for
-  such contents. We here also enforce you to use strategies that could be
-  resilient to ransomware (encrypted remote backups), like remote backups.E
+  keys accessible or the data itself open for any random software (think
+  your Zoom, Skype, Spotify, etc) that could scan your disks for such
+  contents. We here also enforce you to use strategies that could be
+  resilient to ransomware like do remote backups without fear because
+  they're encrypted.
 
-## Tails
-
-> As a rule of thumb: you can use Tails to access other disks, but **avoid
+> **As a rule of thumb**: you can use Tails to access other disks, but **avoid
   using your main workstation to access TailsData (encrypted by default)**.
   Also keep in mind that Tails by default starts without internet access
   (and has assistive technology to help you with potential hardware
   keyloggers) so it's actually a perfect quick to use OS for offline
   ad hoc cryptography operations.
 
+<!--
+
+- ### Non-objectives of AdHocSecurebox
+
+(draft)
+
+- Compared to all ideas behind Tor Browser and Tails the AdHocSecurebox
+  does not try to "improve online anonymity".
+-->
+
+## Tails
+
+AdHocSecurebox v3.0 (and likely future versions) do not have any
+particular suggested reading order.
+
 ### Overview
 
 #### `bin/`: Tails executable scripts
+
+**See [bin/](bin/)**
 
 Look at the folder [bin/](bin/) for inspirational scripts to add to your
 `/home/amnesia/bin`<sup>Amnesic</sup> /
@@ -85,7 +117,7 @@ Look at the folder [bin/](bin/) for inspirational scripts to add to your
 
 #### `directory-structure/`: Example of directory structure
 
-- [directory-structure/](directory-structure/)
+**See [directory-structure/](directory-structure/)**
 
 If you don't plan to read the documentation at [docs/](docs/) and is just browsing
 this repository, this is the folder you look around to see potential examples.
@@ -99,7 +131,7 @@ Look at the folder [docs/](docs/) for POSIX scripts and markdown files mean to b
 
 #### `dotfiles/example/`
 
-- [dotfiles/example/](dotfiles/example/)
+**See [dotfiles/example/](dotfiles/example/)**
 
 The folder [dotfiles/example/](dotfiles/example/) contain examples of dotfiles.
 
@@ -145,23 +177,41 @@ cd /home/amnesia/Persistent/git/fititnt/AdHocSecurebox
 - @ChristopherA Tails Dotfiles: <https://github.com/ChristopherA/bash-dotfiles-for-tails>
 
 ## Beyond Tails
-> Note: most of the concepts used on the _Beyond Tails_ are tested on
-Ubuntu (more specifically Ubuntu 20.04) but documentation can be reused
-as reference for other Linux distributions. The initial author also
-took care to make the public domain individual scripts a as portable
-as possible <3.
 
-See [docs/beyond-tails/](docs/beyond-tails/).
+**See [docs/beyond-tails/](docs/beyond-tails/).**
+
+The initial author also took care to make the public domain individual
+scripts as portable as possible <3.
 
 ### AppArmor profiles
 
-See [apparmor-profiles/](apparmor-profiles/).
+- **See [apparmor-profiles/](apparmor-profiles/).**
+- <https://apparmor.net/>
+
+> Be warned: even the average, non state-sponsored cyber attacks, cannot be
+protected by firewalls because something on your computer collect data
+and upload (or ask instructions from something outside). (... continue ...)
+
+If you are not using Tails, but still using Linux, AppArmor can be reused
+to protect _inside threats_. One typical example is deny access to
+very private folders (like `~/.ssh`, `~/.gnupg`)  (... continue ...)
+
+<!--
+ _inside threats_
+
+. Think, for example
+
+ Depending of your Linux distribution you
+may already be protected by AppArmor. For example: often
+[Snap Apps](https://snapcraft.io/) (at least on Ubuntu)
 
 > Note: RHEL/Fedora/CentOS uses SELinux instead of AppArmor.
+-->
 
 ### Optionated workspace
 
-See [docs/beyond-tails/workspace/](docs/beyond-tails/workspace/).
+- [docs/beyond-tails/workspace/](docs/beyond-tails/workspace/).
+- [directory-structure/](directory-structure/)
 
 ### YubiKey
 
