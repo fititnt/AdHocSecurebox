@@ -1,10 +1,10 @@
-# TailsOS-for-non-whistleblowers v3.0
-**AdHocSecurebox (formerly _TailsOS-for-non-whistleblowers_) is an opinionated collection of scripts/docs to deal with sensitive data with average hardware and open source software. Does not aim to be perfect: just to be _less wrong_. See [Tails](#tails) and [Beyond Tails](#beyond-tails).**
+# AdHocSecurebox v3.0
+**AdHocSecurebox (formerly _TailsOS-for-non-whistleblowers_) is an opinionated collection of public domain scripts/docs to deal with sensitive data with average hardware and open source software.** Does not aim to be perfect: just to be _less wrong_ when you have to do it.
 
 How to do it on an Tails live USB right now?
 
 ```bash
-git clone https://github.com/fititnt/TailsOS-for-non-whistleblowers.git /tmp/bootstrap-tails
+git clone https://github.com/fititnt/AdHocSecurebox.git /tmp/bootstrap-tails
 # mv /home/amnesia/bin /home/amnesia/bin.bkp
 cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 /home/amnesia/bin/tails-do-it
@@ -20,7 +20,8 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 
 <!-- TOC depthFrom:2 orderedList:true -->
 
-1. [Tails](#tails)
+1. [Why?](#why)
+2. [Tails](#tails)
     1. [Overview](#overview)
         1. [`bin/`: Tails executable scripts](#bin-tails-executable-scripts)
         2. [`docs/`: Tails guides by topic](#docs-tails-guides-by-topic)
@@ -31,18 +32,47 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
     3. [Acknowledgements](#acknowledgements)
         1. [Official references](#official-references)
         2. [Community references](#community-references)
-2. [Beyond Tails](#beyond-tails)
+3. [Beyond Tails](#beyond-tails)
     1. [AppArmor profiles](#apparmor-profiles)
     2. [Optionated workspace](#optionated-workspace)
     3. [YubiKey](#yubikey)
-3. [Reuse of this work](#reuse-of-this-work)
+4. [Reuse of this work](#reuse-of-this-work)
     1. [License](#license)
 
 <!-- /TOC -->
 
 ---
 
+## Why?
+
+[Tails](https://tails.boum.org/), without any extra, already is a great start
+for an _ad hoc secure box_ (and is much simpler to get it working than
+[Qubes OS](https://www.qubes-os.org/) / [Whonix](https://www.whonix.org/)).
+But by design Tails is not an average OS for daily usage.
+
+This GitHub project have tested scripts to use on Tails (with special care
+about how to backup/restore) when you have to deal with, for example:
+
+- **On Tails**: create SSH private keys, generate PGP keys for your Yubikey,
+  use an OS as fallback mechanism to log on your servers when your main
+  computer has issues (or you are on-the-go and your company/government
+  would not allow you use any friends hardware). Etc.
+- **Beyond Tails**: even if you already have full-disk encryption
+  we document potential tips for how to deal with you daily Desktop
+  workstation to not leave all the time either encryption/authentication
+  keys accessible or the data itself open for any random software
+  (think your Zoom, Skype, Spotify, etc) that could scan your disks for
+  such contents. We here also enforce you to use strategies that could be
+  resilient to ransomware (encrypted remote backups), like remote backups.E
+
 ## Tails
+
+> As a rule of thumb: you can use Tails to access other disks, but **avoid
+  using your main workstation to access TailsData (encrypted by default)**.
+  Also keep in mind that Tails by default starts without internet access
+  (and has assistive technology to help you with potential hardware
+  keyloggers) so it's actually a perfect quick to use OS for offline
+  ad hoc cryptography operations.
 
 ### Overview
 
