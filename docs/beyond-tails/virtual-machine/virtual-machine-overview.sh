@@ -13,7 +13,10 @@
 #       OPTIONS:  ---
 #  REQUIREMENTS:  1. Any Linux with support for Linux Conteiners https://linuxcontainers.org/
 #                    (Better tested on Ubuntu, using LXC installed with Snap)
-#          BUGS:  ---
+#          BUGS:  1. NOTE for maintainers using shellsheck on this file: parts
+#                    of this fille will show shellcheck warnings. Since this
+#                    file is meant to be read and copy pasted, they will not
+#                    "be fixed".
 #         NOTES:  ---
 #        AUTHOR:  Emerson Rocha <rocha[at]ieee.org>, based on work from Simos Xenitellis 
 #       COMPANY:  Etica.AI
@@ -149,6 +152,10 @@ lxc storage show default
 # PROTIP: this syntax is "cloud-init". If you are interested on what more could
 #         be used to initialize, see
 #         https://cloudinit.readthedocs.io/en/latest/topics/examples.html
+
+# NOTE for maintainers using shellsheck on this file: The next snipped will
+#      show shellcheck warnings. Since this file is meant to be read and copy
+#      pasted, they will not "be fixed".
 
 cat | lxc profile edit vm
 config:

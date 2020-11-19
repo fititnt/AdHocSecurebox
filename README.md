@@ -38,7 +38,8 @@ cp -r /tmp/bootstrap-tails/bin /home/amnesia/bin
 3. [Beyond Tails](#beyond-tails)
     1. [AppArmor profiles](#apparmor-profiles)
     2. [Optionated workspace](#optionated-workspace)
-    3. [YubiKey](#yubikey)
+    3. [Virtual Machines](#virtual-machines)
+    4. [YubiKey](#yubikey)
 4. [Reuse of this work](#reuse-of-this-work)
     1. [License](#license)
 
@@ -212,6 +213,10 @@ may already be protected by AppArmor. For example: often
 
 - [docs/beyond-tails/workspace/](docs/beyond-tails/workspace/).
 - [directory-structure/](directory-structure/)
+
+### Virtual Machines
+
+- [docs/beyond-tails/virtual-machine/](docs/beyond-tails/virtual-machine/).
 
 ### YubiKey
 
